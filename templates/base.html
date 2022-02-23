@@ -24,6 +24,13 @@
     <a class="nav-link disabled" href="#">Disabled</a>
     </li>
     </ul>
+    {% if user.is_authenticated %}
+    Hi {{ user.username }}!
+    <a href="{% url 'logout' %}">Log Out</a>
+    {% else %}
+    <a href="{% url 'login' %}">Log In</a>
+    <a href="{% url 'register' %}">Sign Up</a>
+    {% endif %}
     </nav>
 </header>
 
