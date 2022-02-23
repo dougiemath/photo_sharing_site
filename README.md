@@ -5,6 +5,10 @@ Django Version 3.2
 PostgreSQL
 Cloudinary
 
+bugs
+
+registration form won't display in bootstrap styling 
+--> added 'crispy_forms' to installed apps
 
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
