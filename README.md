@@ -10,6 +10,9 @@ bugs
 registration form won't display in bootstrap styling 
 --> added 'crispy_forms' to installed apps
 
+password reset won't send email
+-->
+
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
