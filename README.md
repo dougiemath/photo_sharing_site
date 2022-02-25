@@ -13,6 +13,8 @@ registration form won't display in bootstrap styling
 password reset won't send email
 -->
 
+one user could have multiple accounts from the same email
+--> added line to forms.py to ensure email field is unique
 
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
