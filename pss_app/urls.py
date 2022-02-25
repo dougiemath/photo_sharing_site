@@ -4,10 +4,11 @@ from . import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('', views.index, name ="homepage"),
-    # path('', views.PostList.as_view(), name ="home"),
+    # path('', views.index, name ="homepage"),
     path('register/', views.register, name ="register"),
     path('', include("django.contrib.auth.urls")),
+    # path('feed/', views.feed, name ="feed"),
+    path('', views.PostList.as_view(), name='home'),
 
     # password reset
 

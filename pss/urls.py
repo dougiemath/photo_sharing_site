@@ -16,12 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
+from pss_app import views
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pss_app.urls')),
-
+    path('', views.PostList.as_view, name ="home"),
+    
     # for resetting password
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password/password_reset_form.html"), name="password_reset_confirm"),
 ]
