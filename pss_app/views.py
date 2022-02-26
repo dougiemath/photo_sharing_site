@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RegistrationForm
 from django.views import generic, View
 from pss_app.models import Post
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 # Create your views here.
 
@@ -25,7 +27,7 @@ def register(request):
     return render(request, "register.html", {"form":form})
 
 
-class PostList(generic.ListView):
+class PostList(LoginRequiredMixin, generic.ListView):
     model = Post
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "feed.html"
