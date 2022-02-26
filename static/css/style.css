@@ -1,0 +1,65 @@
+/* .....................landing page, login page and registration page */
+
+.landing-photo{
+    width: 100%;
+    background: transparent;
+  }
+
+body{
+  width: 100%;
+  background-image: url("https://images.pexels.com/photos/3816395/pexels-photo-3816395.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
+
+.container{
+  background-color: rgba(245, 245, 245, 0.9);
+  width: 100%;
+}
+
+
+/* .....................Feed page grid */
+body{
+    background-color: black;
+}
+
+.row{
+    margin: 0px;
+    width: 100%;
+}
+
+img{
+    width: 100%;  
+}
+
+/* with flexbox */
+.grid {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+  }
+
+  .grid-item{
+      margin: .5em .25em .5em .25em;
+  }
+  
+  .grid-col {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+    -ms-flex-positive: 1;
+    width: 100%;
+  }
+  
+  /* 2 columns by default, hide columns 2 & 3 */
+  .grid-col--2, .grid-col--3 { display: none }
+  
+  /* 3 columns at medium size */
+  @media ( min-width: 768px ) {
+    .grid-col--2 { display: block; } /* show column 2 */
+  }
+  
+  /* 4 columns at large size */
+  @media ( min-width: 1080px ) {
+    .grid-col--3 { display: block; } /* show column 3 */
+  }
+  

@@ -1,5 +1,4 @@
-console.log("hellow world")
-
-function goToLogin() {
-    window.location.href="{% url 'login' %}";
-  }
+var colc = new Colcade('.grid', {
+  columns: '.grid-col',
+  items: '.grid-item'
+});
