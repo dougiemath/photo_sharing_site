@@ -1,7 +1,56 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
 
-{% block content %}
-Landing page page
+<style>
+  .landing-photo{
+    width: 100%;
+    background: transparent;
+  }
 
+body{
+  width: 100%;
+  background-image: url("https://images.pexels.com/photos/3816395/pexels-photo-3816395.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+}
 
-{%endblock%}
+.landing-photo-placeholder{
+  background-color: rgba(245, 245, 245, 0.9);
+  width: 100%;
+}
+</style>
+
+<title>Title</title>
+</head>
+<body>
+
+  <div class="container my-3 landing-photo-placeholder">
+    <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 border shadow-lg">
+      <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+        <h1 class="display-4 fw-bold lh-1">Simple Photo Sharing Site</h1>
+        <p class="lead">Share your beautiful pictures with the world by using our simple, no-nonsense platform.  </p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2 fw-bold" onclick="location.href='{% url 'login' %}';"
+          ">Log in</button>
+        </div>
+        <div>
+          <p>Don't have an account? <a href="{% url 'register' %}">Sign up now!</a></p>
+        </div>
+      </div>
+      <div class="col-lg-4 p-0 overflow-hidden shadow-lg landing-photo-placeholder">
+          <img class="rounded-lg-3 landing-photo" src="https://images.pexels.com/photos/10967988/pexels-photo-10967988.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="" width="720">
+      </div>
+    </div>
+  </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</body>
+</html>
