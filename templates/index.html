@@ -1,19 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-Home page
-<div class="container-fluid">
-    <div class="row">
+Landing page page
 
-        <!-- Blog Entries Column -->
-        <div class="col-12 mt-3 left">
-            <div class="row">
-                {% for post in post_list %}
-                {{ post.author }}
-                {% endfor %}
 
-            </div>
-        </div>
-    </div>
-</div>
 {%endblock%}
