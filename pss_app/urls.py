@@ -4,12 +4,14 @@ from . import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    # path('', views.index, name ="homepage"),
+    # registration page
     path('register/', views.register, name ="register"),
     path('', include("django.contrib.auth.urls")),
-    # path('feed/', views.feed, name ="feed"),
-    path('', views.PostList.as_view(), name='home'),
+    path('', views.index, name='home'),
 
+    # view feed
+    path('feed/', views.PostList.as_view(), name="feed"),
+    
     # password reset
 
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name="password/password_reset.html"), name="reset_password"),
