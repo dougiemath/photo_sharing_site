@@ -3,6 +3,8 @@ from .forms import RegistrationForm
 from django.views import generic, View
 from pss_app.models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
+
 
 
 # Create your views here.
@@ -32,3 +34,16 @@ class PostList(LoginRequiredMixin, generic.ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = "feed.html"
     paginate_by = 6
+
+
+class UserPostList(LoginRequiredMixin, generic.ListView):
+
+    model = Post
+    queryset = Post.objects.filter(status=1).order_by("-created_on")
+    template_name = "user_feed.html"
+    paginate_by = 6
+
+    def get_queryset(self):
+
+        user = self.request.user
+        return Post.objects.filter(author=user)
