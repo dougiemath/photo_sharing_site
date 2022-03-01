@@ -16,6 +16,9 @@ password reset won't send email
 one user could have multiple accounts from the same email
 --> added line to forms.py to ensure email field is unique
 
+when adding 'slug' to post model, migration failed continuously
+--> reset database in heroku
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome dougiemath,
