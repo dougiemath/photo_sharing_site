@@ -19,6 +19,9 @@ one user could have multiple accounts from the same email
 when adding 'slug' to post model, migration failed continuously
 --> reset database in heroku
 
+after resetting heroku, reset_password has stopped working
+-->
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome dougiemath,
