@@ -11,6 +11,7 @@ urlpatterns = [
 
     # view feed
     path('feed/', views.PostList.as_view(), name="feed"),
+    path('<slug:slug>/', views.PostDetail.as_view(), name='image_details'),
     # view user images only
     path('user_feed/', views.UserPostList.as_view(), name="user_feed"),
     

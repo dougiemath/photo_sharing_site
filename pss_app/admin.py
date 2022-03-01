@@ -5,9 +5,11 @@ from pss_app.models import Post, Comment
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
+    # prepopulated_fields = {'slug': ('title',)}
     list_display = ('title', 'status', 'created_on')
     search_fields = ['title', 'content']
     list_filter = ('status', 'created_on')
+    
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
