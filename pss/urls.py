@@ -24,7 +24,4 @@ urlpatterns = [
     path('', views.index, name='home'),
     path('', include('pss_app.urls')),
     
-    
-    # for resetting password
-    path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password/password_reset_form.html"), name="password_reset_confirm"),
 ]

@@ -13,7 +13,7 @@
         {% for post in post_list %}
             
         <!-- {{ post.author }} -->
-            <div class="grid-item"><img src="{{ post.featured_image.url }}" alt="image"></div>
+            <div class="grid-item"><a href ="{% url 'image_details' post.slug %}"><img src="{{ post.featured_image.url }}" alt="image"></a></div>
         {% endfor %}
     </div>
 </div>
