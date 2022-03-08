@@ -22,6 +22,9 @@ when adding 'slug' to post model, migration failed continuously
 after resetting heroku, reset_password has stopped working
 --> moved <slug:slug> url to end of URLs list
 
+unable to add new content
+--> reset database to rewrite models.
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome dougiemath,
