@@ -7,6 +7,7 @@ from .views import(
     ImageDetailView,
     ImageTagListView,
     ImageCreateView,
+    ImageUpdateView,
 )
 
 app_name = 'image'
@@ -29,5 +30,7 @@ urlpatterns = [
     path('tag/<slug:tag>/', ImageTagListView.as_view(), name='tag'),
 
     path('image/create/', ImageCreateView.as_view(), name='create'),
+
+    path('image/<int:pk>/update/', ImageUpdateView.as_view(), name='update'),
 
 ]
