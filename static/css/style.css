@@ -1,28 +1,45 @@
-/* .....................landing page, login page and registration page */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
 
-.landing-photo {
-  width: 100%;
-  background: transparent;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Lato, sans-serif;
 }
 
-.landing-photo-placeholder {
-  margin-bottom: 25px;
+
+/* .....................login page and registration page */
+
+.login-container {
+  font-family: Lato, sans-serif;
+  border: solid .25px #f5f5f5;
+  color: #EFEFEF;
+  border-radius: 10px;
+  padding: 10px;
 }
 
-body {
-  width: 100%;
-  background-image: url("https://images.pexels.com/photos/3816395/pexels-photo-3816395.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+.register-container {
+  font-family: Lato, sans-serif;
+  border: solid .25px #f5f5f5;
+  color: #EFEFEF;
+  border-radius: 10px;
+  padding: 10px;
 }
 
-.container {
-  background-color: rgba(245, 245, 245, 0.9);
-  width: 100%;
+.password-container {
+  font-family: Lato, sans-serif;
+  border: solid .25px #f5f5f5;
+  color: #EFEFEF;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 50px 35px 50px 35px;
 }
-
 
 /* .....................Feed page grid */
 body {
-  background-color: black;
+  background-color: rgb(0, 0, 0);
 }
 
 .row {
@@ -80,4 +97,99 @@ img {
 
 .container-fluid {
   padding: 0;
+}
+
+
+/* ......................image details page */
+.image-details-container {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.image-details-title {
+  color: #f5f5f5;
+  margin-top: 10px;
+}
+
+.image-details-content {
+  color: #EFEFEF;
+}
+
+.image-details-divder {
+  border-top: 1px solid #dbd9d9;
+}
+
+.comment-form-div {
+  font-family: Lato, sans-serif;
+  border: solid .25px #f5f5f5;
+  color: #EFEFEF;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+/* ................................navbar */
+
+.navbar-brand {
+  color: #EFEFEF;
+}
+
+.navigation-section {
+  font-family: Lato, sans-serif;
+  border-bottom: solid .5px #EFEFEF;
+}
+
+#main-content {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.comments-box {
+  font-family: Lato, sans-serif;
+  border: solid .25px #f5f5f5;
+  color: #EFEFEF;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.ind-comments-box {
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.like-buttons {
+  color: #EFEFEF;
+}
+
+.tag-links {
+  color: #EFEFEF;
+  font-style: italic;
+}
+
+.tag-links:hover {
+  color: #EFEFEF;
+}
+
+.upload-a-photo {
+  font-family: Lato, sans-serif;
+  border: solid .25px #f5f5f5;
+  color: #EFEFEF;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.editing-buttons {
+  color: #EFEFEF;
+  padding: 10px 25px 10px 25px;
+  border: solid 1px #EFEFEF;
+}
+
+.editing-buttons:hover {
+  text-decoration: none;
+  color: #343a40;
+  background-color: #EFEFEF;
+}
+
+.comment-body {
+  border-bottom: #EFEFEF solid 1px;
 }
