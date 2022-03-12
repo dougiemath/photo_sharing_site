@@ -5,6 +5,7 @@ from django.contrib.auth import views as auth_views
 from .views import(
     ImageFeedView,
     ImageDetailView,
+    ImageTagListView,
 )
 
 app_name = 'image'
@@ -23,5 +24,7 @@ urlpatterns = [
     path('', ImageFeedView.as_view(), name='list'),
 
     path('image/<int:pk>/', ImageDetailView.as_view(), name='detail'),
+
+    path('tag/<slug:tag>/', ImageTagListView.as_view(), name='tag'),
 
 ]

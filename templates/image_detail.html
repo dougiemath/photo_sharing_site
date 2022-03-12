@@ -15,6 +15,12 @@
         <p class="image-details-content"><small>Uploaded by <i>{{ image.author }}</i> on {{ image.created_on }}</small>
         </p>
         <hr class="image-details-divder">
+        <p class="image-details-content">Image tags:
+            {% for tag in image.tags.all %}
+            <a href="{% url 'image:tag' tag.slug %}" class="tag-links">{{tag.name}}</a>,
+            {% endfor %}
+        </p>
+        <hr class="image-details-divder">
     </div>
 </div>
 
