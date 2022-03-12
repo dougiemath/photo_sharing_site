@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'django.contrib.staticfiles',
     'cloudinary',
+    'taggit',
     'pss_app'
 ]
 

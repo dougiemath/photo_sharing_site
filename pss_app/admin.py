@@ -1,14 +1,13 @@
 from django.contrib import admin
-# from pss_app.models import Post, Comment
+from pss_app.models import Post
 
 # Register your models here.
 
-# @admin.register(Post)
-# class PostAdmin(admin.ModelAdmin):
-#     prepopulated_fields = {'slug': ('title',)}
-#     list_display = ('title', 'status', 'created_on')
-#     search_fields = ['title', 'content']
-#     list_filter = ('status', 'created_on')
+@admin.register(Post)
+class PhotoAdmin(admin.ModelAdmin):
+    list_display = ('title', 'created_on', 'author','tags')
+    list_filter = ('title', 'created_on', 'tags')
+    search_fields = ('title', 'content', 'tags', 'created_on')
     
 
 # @admin.register(Comment)
