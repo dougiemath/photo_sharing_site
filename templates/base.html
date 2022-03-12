@@ -1,100 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="Description" content="Enter your description here" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-{% load static %}
-<link rel="stylesheet" href="{% static 'css/style.css' %}">
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-<style>body{background-image: none; background-color: white;}</style>
+  <style>
+    body {
+      background-image: none;
+      background-color: white;
+    }
+  </style>
 
-<title>Title</title>
+  <title>Title</title>
 </head>
+
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <ul class="nav ">
-    <li class="nav-item">
-    <a class="nav-link active" href="#">Active</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-    <a class="nav-link disabled" href="#">Disabled</a>
-    </li>
-    </ul>
-    {% if user.is_authenticated %}
-    Hi {{ user.username }}!
-    <a href="{% url 'logout' %}">Log Out</a>
-    <a href="{% url 'feed' %}">Feed</a>
-    <a href="{% url 'user_feed' %}">My Page</a>
-    {% else %}
-    <a href="{% url 'login' %}">Log In</a>
-    <a href="{% url 'register' %}">Sign Up</a>
-    {% endif %}
+  <header>
+    <div class="container-fluid navigation-section">
+      {% if user.is_authenticated %}
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'image:list' %}">
+          <h4>PHOTO SHARING SITE</h4>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03"
+          aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample03">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link active">Hi {{ user.username }}!</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'image:list' %}">Main Feed <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+            </li>
+            <li class="nav-item">
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#"><span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+            </li>
+          </ul>
+      </nav>
+      {% else %}
+      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'image:list' %}">
+          <h4>PHOTO SHARING SITE</h4>
+        </a>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'image:list' %}">Main Feed <span class="sr-only"></span></a>
+          </li>
+        </ul>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03"
+          aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarsExample03">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+            </li>
+            <li class="nav-item">
+            </li>
+          </ul>
+        </div>
+        {% endif %}
+    </div>
     </nav>
-</header>
-<section class="bg-dark">
-{% block content %}{% endblock content %}
-</section>
 
-<footer class="container-fluid bg-dark text-center text-white border-top border-white">
+  </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="bg-dark">
+    {% block content %}{% endblock content %}
+  </section>
+
+  <footer class="container-fluid bg-dark text-center text-white border-top border-white">
     <!-- Grid container -->
-  <div class="container p-4 pb-0 bg-dark">
-    <!-- Section: Social media -->
-    <section class="mb-2">
-      <!-- Facebook -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-facebook-f"></i
-      ></a>
+    <div class="container p-4 pb-0 bg-dark">
+      <!-- Section: Social media -->
+      <section class="mb-2">
+        <!-- Facebook -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
 
-      <!-- Twitter -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-twitter"></i
-      ></a>
+        <!-- Twitter -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
 
-      <!-- Google -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-google"></i
-      ></a>
+        <!-- Google -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
 
-      <!-- Instagram -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-instagram"></i
-      ></a>
+        <!-- Instagram -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
 
-      <!-- Linkedin -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-linkedin-in"></i
-      ></a>
+        <!-- Linkedin -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
 
-      <!-- Github -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-        ><i class="fab fa-github"></i
-      ></a>
-    </section>
-    <!-- Section: Social media -->
+        <!-- Github -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3 bg-dark">
+      © 2022 Copyright Photo Sharing Site
+    </div>
+    <!-- Copyright -->
+  </footer>
   </div>
-  <!-- Grid container -->
-
-  <!-- Copyright -->
-  <div class="text-center p-3 bg-dark">
-    © 2022 Copyright Photo Sharing Site
-  </div>
-  <!-- Copyright -->
-</footer>
-</div>
-<script src="https://unpkg.com/colcade@0/colcade.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
-{% load static %}
-<script src="{% static 'js/script.js' %}"></script>
+  <script src="https://unpkg.com/colcade@0/colcade.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+  {% load static %}
+  <script src="{% static 'js/script.js' %}"></script>
 </body>
+
 </html>
