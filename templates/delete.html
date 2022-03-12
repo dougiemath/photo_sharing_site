@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<br>
+<div class="container upload-a-photo">
+    <div class="form-group mx-auto">
+        <h2 class="text-center">
+            You are going to <span class="text-danger">delete</span>: "<i>{{ post.title }}</i>
+            "
+        </h2>
+        <p class="text-center">Are you sure, you want to delete the photo ?</p>
+        <div class="form-group">
+            <form action="" method="post" class="d-flex flex-column align-items-center justify-content-center">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-6 text-right">
+                        <a href="#" class="btn btn-primary">Cancel</a>
+                    </div>
+                    <div class="col-6 text-left">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </div>
+                </div>
+                <p>This action is irreversible</p>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+{% endblock %}

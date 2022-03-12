@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RegistrationForm, UploadForm
-from django.views.generic import ListView, DetailView, CreateView, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from pss_app.models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
@@ -53,6 +53,7 @@ class ImageTagListView(ImageFeedView):
         context["tag"] = self.get_tag()
         return context
 
+# create a new image
 class ImageCreateView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = UploadForm
@@ -63,6 +64,7 @@ class ImageCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+# check user is valid
 class UserIsAuthor(UserPassesTestMixin):
 
     def get_photo(self):
@@ -75,8 +77,15 @@ class UserIsAuthor(UserPassesTestMixin):
         else:
             raise PermissionDenied('Sorry, nope!')
 
+# update / change image
 class ImageUpdateView(UserIsAuthor, UpdateView):
     template_name = 'update.html'
     model = Post
     fields = ['title', 'description', 'tags', 'status']
+    success_url = reverse_lazy('image:list')
+
+# delete image
+class ImageDeleteView(UserIsAuthor, DeleteView):
+    template_name = 'delete.html'
+    model = Post
     success_url = reverse_lazy('image:list')
