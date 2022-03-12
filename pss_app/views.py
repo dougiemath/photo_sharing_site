@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import RegistrationForm
-from django.views.generic import ListView, DetailView, ImageFeedView
+from .forms import RegistrationForm, UploadForm
+from django.views.generic import ListView, DetailView, CreateView
 from pss_app.models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from django.urls import reverse_lazy
 
 
 # Create your views here.
@@ -52,3 +53,13 @@ class ImageTagListView(ImageFeedView):
         context["tag"] = self.get_tag()
         return context
 
+class ImageCreateView(LoginRequiredMixin, CreateView):
+    
+    model = Post
+    form_class = UploadForm
+    template_name = 'upload_image.html'
+    success_url = reverse_lazy('image:list')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)

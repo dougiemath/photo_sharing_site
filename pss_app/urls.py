@@ -6,6 +6,7 @@ from .views import(
     ImageFeedView,
     ImageDetailView,
     ImageTagListView,
+    ImageCreateView,
 )
 
 app_name = 'image'
@@ -26,5 +27,7 @@ urlpatterns = [
     path('image/<int:pk>/', ImageDetailView.as_view(), name='detail'),
 
     path('tag/<slug:tag>/', ImageTagListView.as_view(), name='tag'),
+
+    path('image/create/', ImageCreateView.as_view(), name='create'),
 
 ]
