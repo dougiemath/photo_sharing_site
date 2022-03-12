@@ -13,7 +13,7 @@
         {% for photo in photos %}
 
         <!-- {{ post.author }} -->
-        <div class="grid-item"><a href="#"> <img src="{{photo.featured_image.url}}"
+        <div class="grid-item"><a href="{% url 'image:detail' photo.id %}"> <img src="{{photo.featured_image.url}}"
                     alt="{{photo.title}}" /></a></div>
         {% endfor %}
     </div>

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RegistrationForm
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from pss_app.models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
@@ -29,3 +29,10 @@ class ImageFeedView(ListView):
     context_object_name = 'photos'
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     paginate_by = 30
+
+# image details
+
+class ImageDetailView(DetailView):
+    model = Post
+    template_name = 'image_detail.html'
+    context_object_name = 'image'

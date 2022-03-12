@@ -4,6 +4,7 @@ from . import views
 from django.contrib.auth import views as auth_views
 from .views import(
     ImageFeedView,
+    ImageDetailView,
 )
 
 app_name = 'image'
@@ -20,4 +21,7 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password/password_reset_form.html"), name="password_reset_confirm"),
 
     path('', ImageFeedView.as_view(), name='list'),
+
+    path('image/<int:pk>/', ImageDetailView.as_view(), name='detail'),
+
 ]

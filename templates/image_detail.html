@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<title>{{ image.title }}</title>
+
+<div class="row image-details-container">
+    <div class="col-sm-8 style">
+        <img src=" {{ image.featured_image.url }}" style="width: 100%;">
+    </div>
+    <div class="col-sm-4 ">
+        <h2 class="image-details-title">{{ image.title }}</h2>
+        <hr class="image-details-divder">
+        <p class="image-details-content">{{ image.description }}</p>
+        <p class="image-details-content"><small>Uploaded by <i>{{ image.author }}</i> on {{ image.created_on }}</small>
+        </p>
+        <hr class="image-details-divder">
+    </div>
+</div>
+
+
+{%endblock%}
