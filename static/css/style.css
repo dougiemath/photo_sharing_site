@@ -178,6 +178,14 @@ img {
   padding: 5px;
 }
 
+.upload-a-photo li{
+  color: #f5f5f5;
+}
+
+.bg-black{
+  background-color: #000000;
+}
+
 .editing-buttons {
   color: #EFEFEF;
   padding: 10px 25px 10px 25px;
