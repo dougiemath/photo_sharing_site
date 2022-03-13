@@ -89,7 +89,7 @@ class ImageUpdateView(UserIsAuthor, UpdateView):
 class ImageDeleteView(UserIsAuthor, DeleteView):
     template_name = 'delete.html'
     model = Post
-    success_url = reverse_lazy('image:list')
+    success_url = reverse_lazy('image:user_feed')
 
 #login view
 class CustomLoginView(LoginView):

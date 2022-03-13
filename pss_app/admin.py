@@ -1,5 +1,5 @@
 from django.contrib import admin
-from pss_app.models import Post
+from pss_app.models import Post, Comment
 
 # Register your models here.
 
@@ -10,6 +10,13 @@ class PhotoAdmin(admin.ModelAdmin):
     search_fields = ('title', 'content', 'tags', 'created_on')
     
 
-# @admin.register(Comment)
-# class CommentAdmin(admin.ModelAdmin):
-#     list_display = ('name', 'body', 'post', 'created_on')
+# comment section of admin site
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('author', 'body', 'post', 'created_on', 'active')
+    list_filter = ('active', 'created_on')
+    search_fields = ('author', 'email', 'body')
+    actions = ['approve_comments']
+
+    def approve_comments(self, request, queryset):
+        queryset.update(active=True)
