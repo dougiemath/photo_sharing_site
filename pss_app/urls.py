@@ -49,4 +49,5 @@ urlpatterns = [
 
     path('photo/<int:pk>/comment/', AddCommentView.as_view(), name = 'add_comment'),
 
+    path('search_results', views.search_results, name='search_results'),
 ]

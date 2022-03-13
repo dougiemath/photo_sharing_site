@@ -40,16 +40,16 @@ class ImageDetailView(DetailView):
 
 # view image's tags
 class ImageTagListView(ImageFeedView):
-    
+    queryset = Post.objects.filter(status=1).order_by("-created_on")
     template_name = 'taglist.html'
     
     def get_tag(self):
         return self.kwargs.get('tag')
 
     def get_queryset(self):
-        return self.model.objects.filter(tags__slug=self.get_tag())
+        return self.model.objects.filter(tags__slug=self.get_tag(), status=1)
     
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs):        
         context = super().get_context_data(**kwargs)
         context["tag"] = self.get_tag()
         return context
@@ -114,6 +114,7 @@ class UserImageDetails(DetailView):
     template_name = 'user_image_details.html'
     context_object_name = 'image'
 
+#add comment
 class AddCommentView(CreateView):
 
     model = Comment
@@ -126,3 +127,14 @@ class AddCommentView(CreateView):
 
     success_url = reverse_lazy('image:list')
 
+#search for image by tag
+def search_results(request):
+    if request.method == "POST":
+        searched = request.POST['searched']
+        posts = Post.objects.filter(tags__name=searched, status=1)
+        return render(request, 'search_results.html',
+        {'searched':searched,
+        'posts':posts})
+
+    else:
+        return render(request, 'search_results.html',{})
