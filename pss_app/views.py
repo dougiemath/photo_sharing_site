@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import RegistrationForm, UploadForm
+from .forms import RegistrationForm, UploadForm, CommentForm
 from django.contrib.auth.views import LoginView
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-from pss_app.models import Post
+from pss_app.models import Post, Comment
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
@@ -113,3 +113,16 @@ class UserImageDetails(DetailView):
     model = Post
     template_name = 'user_image_details.html'
     context_object_name = 'image'
+
+class AddCommentView(CreateView):
+
+    model = Comment
+    form_class = CommentForm
+    template_name = 'add_comment.html'
+    def form_valid(self, form):
+        form.instance.post_id = self.kwargs['pk']
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+    success_url = reverse_lazy('image:list')
+

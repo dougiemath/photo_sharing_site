@@ -24,5 +24,34 @@
     </div>
 </div>
 
+<div class="container-fluid  upload-a-photo" style=" width: 95%;">
+
+    <div class="comment-title col-sm">
+        <h2>Comments</h2>
+    </div>
+    {% if user.is_authenticated  %}
+    <div class="comments-details pl-3">
+
+        {% if not image.comments.all %}
+        <strong>There are no comments yet. Be the first by clicking below!</strong>
+        {% else %}
+        {% for comment in image.comments.all  %}
+        <br>
+        <div class="comment-body">
+            <strong>{{ comment.body }}</strong>
+            <p class="font-italic"><small>Comment added on {{ comment.created_on }} by {{ user.username }}</small></p>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+    </div>
+    <div class="comment-link col-sm mb-3 mt-4"><a class="editing-buttons"
+            href="{% url 'image:add_comment' image.pk %}">Add a
+            comment</a></div>
+    {% else %}
+    <p class="pl-3">You must be logged in to view comments</p>
+    {% endif %}
+</div>
+<br>
 
 {%endblock%}

@@ -12,6 +12,7 @@ from .views import(
     CustomLoginView,
     UserPostList,
     UserImageDetails,
+    AddCommentView,
 )
 
 app_name = 'image'
@@ -46,5 +47,6 @@ urlpatterns = [
 
     path('image/<int:pk>/user_image_details', UserImageDetails.as_view(), name='user_image_details'),
 
+    path('photo/<int:pk>/comment/', AddCommentView.as_view(), name = 'add_comment'),
 
 ]

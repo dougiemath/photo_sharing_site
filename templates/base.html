@@ -12,13 +12,6 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-  <style>
-    body {
-      background-image: none;
-      background-color: white;
-    }
-  </style>
-
   <title>Title</title>
 </head>
 
@@ -43,13 +36,16 @@
               <a class="nav-link" href="{% url 'image:list' %}">Main Feed <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{% url 'image:user_feed' %}">My Page</a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{% url 'image:create' %}">Upload an Image <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#"><span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{% url 'image:logout' %}">Log Out <span class="sr-only"></span></a>
             </li>
           </ul>
       </nav>
@@ -71,8 +67,10 @@
         <div class="collapse navbar-collapse" id="navbarsExample03">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
+              <a class="nav-link" href="{% url 'image:login' %}">Log In <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="{% url 'image:register' %}">Sign Up <span class="sr-only"></span></a>
             </li>
           </ul>
         </div>
