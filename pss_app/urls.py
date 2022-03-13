@@ -8,7 +8,9 @@ from .views import(
     ImageTagListView,
     ImageCreateView,
     ImageUpdateView,
-    ImageDeleteView
+    ImageDeleteView,
+    CustomLoginView,
+
 )
 
 app_name = 'image'
@@ -18,6 +20,9 @@ urlpatterns = [
     path('register/', views.register, name ="register"),
     path('', include("django.contrib.auth.urls")),
     
+    # login
+    path('login/', CustomLoginView.as_view(), name='login'),
+
     # password reset
     path('reset_password/', auth_views.PasswordResetView.as_view(template_name="password/password_reset.html"), name="reset_password"),
     path('password_reset_sent/', auth_views.PasswordResetDoneView.as_view(template_name="password/password_reset_sent.html"), name="password_reset_done"),

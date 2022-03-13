@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import RegistrationForm, UploadForm
+from django.contrib.auth.views import LoginView
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from pss_app.models import Post
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
@@ -89,3 +90,7 @@ class ImageDeleteView(UserIsAuthor, DeleteView):
     template_name = 'delete.html'
     model = Post
     success_url = reverse_lazy('image:list')
+
+
+class CustomLoginView(LoginView):
+    template_name = 'registration/login.html'
