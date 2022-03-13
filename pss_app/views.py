@@ -91,6 +91,25 @@ class ImageDeleteView(UserIsAuthor, DeleteView):
     model = Post
     success_url = reverse_lazy('image:list')
 
-
+#login view
 class CustomLoginView(LoginView):
     template_name = 'registration/login.html'
+
+#user feed page
+class UserPostList(LoginRequiredMixin, ListView):
+
+    model = Post
+    queryset = Post.objects.order_by("-created_on")
+    template_name = "user_feed.html"
+    context_object_name = 'photos'
+    paginate_by = 30
+
+    def get_queryset(self):
+        user = self.request.user
+        return Post.objects.filter(author=user)
+
+#user image page
+class UserImageDetails(DetailView):
+    model = Post
+    template_name = 'user_image_details.html'
+    context_object_name = 'image'

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<title>{{ image.title }}</title>
+
+<div class="row image-details-container">
+    <div class="col-sm-8 style">
+        <img src=" {{ image.featured_image.url }}" style="width: 100%;">
+    </div>
+    <div class="col-sm-4 ">
+        <h2 class="image-details-title">{{ image.title }}</h2>
+        <hr class="image-details-divder">
+        <div class="draft-status p-2 text-center">
+            {% if image.status == 1 %}
+            <p class="text-success">This image has been published to the live feed.</p>
+            {% else %}
+            <p class="text-warning">This image is still a 'draft' and is visible only to you.</p>
+            {% endif %}
+        </div>
+        <hr class="image-details-divder">
+        <p class="image-details-content">{{ image.description }}</p>
+        <p class="image-details-content"><small>Uploaded on {{ image.created_on }}</small></p>
+        <hr class="image-details-divder">
+        <p class="image-details-content">Image tags:
+            {% for tag in image.tags.all %}
+            <a href="{% url 'image:tag' tag.slug %}" class="tag-links">{{tag.name}}</a>,
+            {% endfor %}
+        </p>
+        <hr class="image-details-divder">
+        <p class="image-details-content">Options:
+            <div class="row justify-content-center">
+                <div class="col-6 d-flex justify-content-center">
+                    <a class="editing-buttons" href="{% url 'image:update' image.pk %}"> Edit Image</a>
+                </div>
+                <div class="col-6 d-flex justify-content-center">
+                    <a class="editing-buttons" href="{% url 'image:delete' image.pk %}">Delete Image</a>
+                </div>
+            </div>
+    </div>
+</div>
+<br>
+
+{% endblock %}

@@ -10,10 +10,11 @@
         <div class="grid-col grid-col--3"></div>
         <div class="grid-col grid-col--4"></div>
         <!-- items -->
-        {% for post in post_list %}
-            
+        {% for photo in photos %}
+
         <!-- {{ post.author }} -->
-            <div class="grid-item"><a href ="{% url 'image_details' post.slug %}"><img src="{{ post.featured_image.url }}" alt="image"></a></div>
+        <div class="grid-item"><a href="{% url 'image:user_image_details' photo.id %}"> <img
+                    src="{{photo.featured_image.url}}" alt="{{photo.title}}" /></a></div>
         {% endfor %}
     </div>
 </div>

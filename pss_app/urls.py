@@ -10,7 +10,8 @@ from .views import(
     ImageUpdateView,
     ImageDeleteView,
     CustomLoginView,
-
+    UserPostList,
+    UserImageDetails,
 )
 
 app_name = 'image'
@@ -40,6 +41,10 @@ urlpatterns = [
     path('image/<int:pk>/update/', ImageUpdateView.as_view(), name='update'),
 
     path('image/<int:pk>/delete/', ImageDeleteView.as_view(), name='delete'),
+
+    path('image/user_feed/', UserPostList.as_view(), name="user_feed"), 
+
+    path('image/<int:pk>/user_image_details', UserImageDetails.as_view(), name='user_image_details'),
 
 
 ]
