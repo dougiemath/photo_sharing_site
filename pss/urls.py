@@ -22,6 +22,7 @@ from pss_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('pss_app.urls')),
+    path("accounts/", include("allauth.urls")),
     
     path('reset/<uidb64>/<token>/', auth_views.PasswordResetConfirmView.as_view(template_name="password/password_reset_form.html"), name="password_reset_confirm"),
 ]

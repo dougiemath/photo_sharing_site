@@ -48,7 +48,7 @@
             <button class="btn btn-outline-dark my-2 my-sm-0 mr-2" type="submit">Search</button>
           </form>
           <a class="btn btn-outline-dark my-2 my-sm-0 mr-2" href="{% url 'image:create' %}">Upload Image</a>
-          <div class="log-out-button"><a class="btn btn-outline-dark my-2 my-sm-0" href="{% url 'image:logout' %}">Log
+          <div class="log-out-button"><a class="btn btn-outline-dark my-2 my-sm-0" href="{% url 'account_logout' %}">Log
               Out</a></div>
       </nav>
       {% else %}
@@ -65,10 +65,10 @@
         <div class="collapse navbar-collapse" id="navbarsExample03">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'image:login' %}">Log In <span class="sr-only"></span></a>
+              <a class="nav-link" href="{% url 'account_login' %}">Log In <span class="sr-only"></span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'image:register' %}">Sign Up <span class="sr-only"></span></a>
+              <a class="nav-link" href="{% url 'account_signup' %}">Sign Up <span class="sr-only"></span></a>
             </li>
           </ul>
         </div>

@@ -43,11 +43,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'cloudinary_storage',
     'crispy_forms',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'django.contrib.staticfiles',
     'cloudinary',
     'taggit',
     'pss_app'
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
