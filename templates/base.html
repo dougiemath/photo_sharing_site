@@ -11,15 +11,13 @@
 
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
-  <title>Title</title>
 </head>
 
 <body>
   <header>
-    <div class="container-fluid navigation-section">
+    <div class="container-fluid border-bottom">
       {% if user.is_authenticated %}
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-light nav-text">
         <a class="navbar-brand" href="{% url 'image:list' %}">
           <h4>PHOTO SHARING SITE</h4>
         </a>
@@ -39,32 +37,26 @@
               <a class="nav-link" href="{% url 'image:user_feed' %}">My Page</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'image:create' %}">Upload an Image <span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="#"><span class="sr-only"></span></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'image:logout' %}">Log Out <span class="sr-only"></span></a>
-            </li>
           </ul>
+
           <form class="form-inline my-2 my-lg-0" method=POST action="{% url 'image:search_results' %}">
             {% csrf_token %}
             <input class="form-control mr-sm-2" type="search" placeholder="Search Images" aria-label="Search"
               name="searched">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            <button class="btn btn-outline-dark my-2 my-sm-0 mr-2" type="submit">Search</button>
           </form>
+          <a class="btn btn-outline-dark my-2 my-sm-0 mr-2" href="{% url 'image:create' %}">Upload Image</a>
+          <div class="log-out-button"><a class="btn btn-outline-dark my-2 my-sm-0" href="{% url 'image:logout' %}">Log
+              Out</a></div>
       </nav>
       {% else %}
-      <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-light nav-text">
         <a class="navbar-brand" href="{% url 'image:list' %}">
           <h4>PHOTO SHARING SITE</h4>
         </a>
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'image:list' %}">Main Feed <span class="sr-only"></span></a>
-          </li>
-        </ul>
+
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03"
           aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
@@ -86,61 +78,46 @@
 
   </header>
 
+  <section class="pr-3 pl-3 pt-1 pb-1">
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <section class="bg-dark">
     {% block content %}{% endblock content %}
+
   </section>
 
-  <footer class="container-fluid bg-dark text-center text-white border-top border-white">
-    <!-- Grid container -->
-    <div class="container p-4 pb-0 bg-dark">
-      <!-- Section: Social media -->
+  <footer class="container-fluid text-center text-dark border-top border-dark">
+    <div class="container p-4 pb-0">
       <section class="mb-2">
-        <!-- Facebook -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-facebook-f"></i></a>
+        <a class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/" target="_blank"
+          role="button"><i class="fab fa-facebook-f"></i></a>
 
-        <!-- Twitter -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-twitter"></i></a>
+        <a class="btn btn-outline-dark btn-floating m-1" href="https://twitter.com/" target="_blank" role="button"><i
+            class="fab fa-twitter"></i></a>
 
-        <!-- Google -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-google"></i></a>
+        <a class="btn btn-outline-dark btn-floating m-1" href="https://www.google.com/" target="_blank" role="button"><i
+            class="fab fa-google"></i></a>
 
-        <!-- Instagram -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-instagram"></i></a>
+        <a class="btn btn-outline-dark btn-floating m-1" href="https://www.instagram.com/?hl=en" target="_blank"
+          role="button"><i class="fab fa-instagram"></i></a>
 
-        <!-- Linkedin -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-linkedin-in"></i></a>
+        <a class="btn btn-outline-dark btn-floating m-1" href="https://www.linkedin.com/" target="_blank"
+          role="button"><i class="fab fa-linkedin-in"></i></a>
 
-        <!-- Github -->
-        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"><i class="fab fa-github"></i></a>
+        <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/" target="_blank" role="button"><i
+            class="fab fa-github"></i></a>
       </section>
-      <!-- Section: Social media -->
-    </div>
-    <!-- Grid container -->
 
-    <!-- Copyright -->
-    <div class="text-center p-3 bg-dark">
-      © 2022 Copyright Photo Sharing Site
+      <div class="text-center">
+        <p>© 2022 Copyright Photo Sharing Site</p>
+      </div>
     </div>
-    <!-- Copyright -->
   </footer>
-  </div>
+
+
+  <!--Icons-->
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
   <script src="https://unpkg.com/colcade@0/colcade.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>

@@ -9,38 +9,7 @@ h6 {
   font-family: Lato, sans-serif;
 }
 
-
-/* .....................login page and registration page */
-
-.login-container {
-  font-family: Lato, sans-serif;
-  border: solid .25px #f5f5f5;
-  color: #EFEFEF;
-  border-radius: 10px;
-  padding: 10px;
-}
-
-.register-container {
-  font-family: Lato, sans-serif;
-  border: solid .25px #f5f5f5;
-  color: #EFEFEF;
-  border-radius: 10px;
-  padding: 10px;
-}
-
-.password-container {
-  font-family: Lato, sans-serif;
-  border: solid .25px #f5f5f5;
-  color: #EFEFEF;
-  border-radius: 10px;
-  padding: 10px;
-  margin: 50px 35px 50px 35px;
-}
-
 /* .....................Feed page grid */
-body {
-  background-color: rgb(0, 0, 0);
-}
 
 .row {
   margin: 0px;
@@ -49,6 +18,14 @@ body {
 
 img {
   width: 100%;
+}
+
+body {
+  background: url("https://images.pexels.com/photos/7135058/pexels-photo-7135058.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 /* with flexbox */
@@ -101,103 +78,37 @@ img {
 
 
 /* ......................image details page */
-.image-details-container {
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
 
 .image-details-title {
-  color: #f5f5f5;
   margin-top: 10px;
 }
 
 .image-details-content {
-  color: #EFEFEF;
+  font-family: Lato, sans-serif;
 }
 
 .image-details-divder {
   border-top: 1px solid #dbd9d9;
 }
 
-.comment-form-div {
-  font-family: Lato, sans-serif;
-  border: solid .25px #f5f5f5;
-  color: #EFEFEF;
-  border-radius: 10px;
-  padding: 10px;
-}
-
-
-/* ................................navbar */
-
-.navbar-brand {
-  color: #EFEFEF;
-}
-
-.navigation-section {
-  font-family: Lato, sans-serif;
-  border-bottom: solid .5px #EFEFEF;
-}
-
-#main-content {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.comments-box {
-  font-family: Lato, sans-serif;
-  border: solid .25px #f5f5f5;
-  color: #EFEFEF;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  padding: 5px;
-}
-
-.ind-comments-box {
-  border-bottom: 1px solid #f5f5f5;
-}
-
-.like-buttons {
-  color: #EFEFEF;
-}
-
 .tag-links {
-  color: #EFEFEF;
   font-style: italic;
-}
-
-.tag-links:hover {
-  color: #EFEFEF;
-}
-
-.upload-a-photo {
-  font-family: Lato, sans-serif;
-  border: solid .25px #f5f5f5;
-  color: #EFEFEF;
-  border-radius: 10px;
-  padding: 5px;
-}
-
-.upload-a-photo li{
-  color: #f5f5f5;
-}
-
-.bg-black{
-  background-color: #000000;
-}
-
-.editing-buttons {
-  color: #EFEFEF;
-  padding: 10px 25px 10px 25px;
-  border: solid 1px #EFEFEF;
-}
-
-.editing-buttons:hover {
-  text-decoration: none;
-  color: #343a40;
-  background-color: #EFEFEF;
 }
 
 .comment-body {
   border-bottom: #EFEFEF solid 1px;
+  font-family: Lato, sans-serif;
+}
+
+.nav-text {
+  font-family: Lato, sans-serif;
+}
+
+.image-container-custom {
+  background: rgba(245, 245, 245, 0.5);
+  border: solid 5px #f5f5f5;
+}
+
+.container-custom {
+  background: rgba(245, 245, 245, 0.5);
 }
