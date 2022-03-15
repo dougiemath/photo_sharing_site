@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<title>Delete Image</title>
 
 <br>
-<div class="container upload-a-photo">
+<div class="container pb-2 pt-2 border rounded container-custom">
     <div class="form-group mx-auto">
         <h2 class="text-center">
-            You are going to <strong><span class="text-danger">delete</span></strong>: "<i>{{ post.title }}</i>
+            You are going to <span class="text-danger">delete</span>: "<i>{{ post.title }}</i>
             "
         </h2>
         <p class="text-center">Are you sure, you want to delete the photo ?</p>
@@ -14,11 +15,12 @@
             <form action="" method="post" class="d-flex flex-column align-items-center justify-content-center">
                 {% csrf_token %}
                 <div class="row">
-                    <div class="col-6 text-right">
-                        <a href="{% url 'image:user_image_details' post.id %}" class="btn btn-primary">Cancel</a>
+                    <div class="col text-right">
+                        <a href="{% url 'image:user_image_details' post.id %}"
+                            class="my-2 btn btn-primary btn-sm">Cancel</a>
                     </div>
-                    <div class="col-6 text-left">
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                    <div class="col text-left">
+                        <button type="submit" class="my-2 btn btn-danger btn-sm">Delete</button>
                     </div>
                 </div>
                 <p>This action is irreversible</p>

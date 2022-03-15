@@ -3,25 +3,31 @@
 {% block title %}Login{% endblock title %}
 
 {% block content %}
-
-{% load crispy_forms_tags %}
 <br>
-<div class="container upload-a-photo">
-<h1 class="display-4 fw-bold lh-1">Login</h1>
+<div class="container pb-2 pt-2 border rounded container-custom">
+  {% load crispy_forms_tags %}
+  <h1 class="display-4 fw-bold lh-1">Login</h1>
 
-<div class="d-grid gap-2 d-md-flex justify-content-md-start mb-4 mb-lg-3">
-  <form method="POST" class = "form-group">
+  <form method="POST" class="form-group">
     {% csrf_token %}
     {{form|crispy}}
-    <button type="submit" class = "btn btn-success">SUBMIT</button>
-    
+    <button type="submit" class="btn btn-success">LOGIN</button>
+
   </form>
-</div>
-<div>
-  <p>Don't have an account? <a href="{% url 'image:register' %}">Sign up now!</a></p>
-</div>
-<div>
-  <p>Can't remember your password? <a href="#">Reset Password.</a></p></div>
+  <div class="row d-flex justify-content-between">
+    <div class="mb-3">
+      <p>Don't have an account? <span class="ml-4"><a class="btn btn-outline-dark"
+            href="{% url 'image:register' %}">Sign up
+            now!</a></span>
+      </p>
+    </div>
+
+    <div class="mr-2">
+      <p>Can't remember your password? <span class="ml-4"><a class="btn btn-outline-dark"
+            href="{% url 'image:reset_password' %}">Reset
+            Password.</a></span></p>
+    </div>
+  </div>
 </div>
 <br>
 {% endblock content %}

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<title>Feed</title>
 
 <div class="row">
     <div class="grid">
@@ -13,8 +14,8 @@
         {% for photo in photos %}
 
         <!-- {{ post.author }} -->
-        <div class="grid-item"><a href="{% url 'image:detail' photo.id %}"> <img src="{{photo.featured_image.url}}"
-                    alt="{{photo.title}}" /></a></div>
+        <div class="grid-item image-container-custom"><a href="{% url 'image:detail' photo.id %}"> <img
+                    src="{{photo.featured_image.url}}" alt="{{photo.title}}" /></a></div>
         {% endfor %}
     </div>
 </div>

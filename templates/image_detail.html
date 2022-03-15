@@ -4,27 +4,72 @@
 
 <title>{{ image.title }}</title>
 
-<div class="row image-details-container">
-    <div class="col-sm-8 style">
-        <img src=" {{ image.featured_image.url }}" style="width: 100%;">
+{% load crispy_forms_tags %}
+
+<div class="row mt-2">
+    <div class="col-sm-8 pr-2">
+        <img class="border rounded" src=" {{ image.featured_image.url }}" style="width: 100%;">
     </div>
-    <div class="col-sm-4 ">
+    <div class="col-sm-4 border rounded container-custom">
         <h2 class="image-details-title">{{ image.title }}</h2>
         <hr class="image-details-divder">
+
+
+        <div class="likes d-flex flex-row">
+
+
+            <div class="like-btn">
+                <form action="{% url 'image:like_post' image.pk %}" method="POST">
+                    {% csrf_token %}
+
+                    {% if request.user in image.likes.all %}
+                    <div class="d-flex flex-row">
+                        <div class="mr-2"><button type="submit" name="image_id" value="{{ image.id }}"
+                                class="btn btn-outline-dark btn-sm">
+                                <ion-icon name="heart"></ion-icon>
+                            </button></div>
+                        <div>
+                            <p class="image-details-content">You have liked this picture.</p>
+                        </div>
+                    </div>
+
+                    {% else %}
+
+                    <button type="submit" name="image_id" value="{{ image.id }}" class="btn btn-outline-dark btn-sm">
+                        <ion-icon name="heart-outline"></ion-icon>
+                    </button>
+
+                    {% endif %}
+                </form>
+            </div>
+
+        </div>
+        <hr class="image-details-divder">
+        <div class="num-of-likes">
+            <p class="image-details-content">This picture has been liked <strong>{{ image.likes.count }}</strong>
+                times.</p>
+        </div>
+
+
+
+
         <p class="image-details-content">{{ image.description }}</p>
         <p class="image-details-content"><small>Uploaded by <i>{{ image.author }}</i> on {{ image.created_on }}</small>
         </p>
         <hr class="image-details-divder">
         <p class="image-details-content">Image tags:
             {% for tag in image.tags.all %}
-            <a href="{% url 'image:tag' tag.slug %}" class="tag-links">{{tag.name}}</a>,
+            <a href="{% url 'image:tag' tag.slug %}" class="badge badge-pill badge-light p-2">{{tag.name}}</a>,
             {% endfor %}
         </p>
         <hr class="image-details-divder">
+        </form>
+
     </div>
 </div>
 
-<div class="container-fluid  upload-a-photo" style=" width: 95%;">
+
+<div class="container-fluid pb-2 pt-2 border rounded container-custom mt-3 mb-3" style=" width: 95%;">
 
     <div class="comment-title col-sm">
         <h2>Comments</h2>
@@ -45,13 +90,12 @@
         {% endif %}
 
     </div>
-    <div class="comment-link col-sm mb-3 mt-4"><a class="editing-buttons"
+    <div class="comment-link col-sm mb-3 mt-3"><a class="btn btn-outline-dark"
             href="{% url 'image:add_comment' image.pk %}">Add a
             comment</a></div>
     {% else %}
     <p class="pl-3">You must be logged in to view comments</p>
     {% endif %}
 </div>
-<br>
 
 {%endblock%}

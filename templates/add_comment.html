@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<title>Add Comment</title>
+
 
 <br>
-<div class="container upload-a-photo">
+<div class="container pb-2 pt-2 border rounded container-custom">
     <h3>Leave a comment:</h3>
     <p>Posting as: {{ user.username }}</p>
 
@@ -12,9 +14,10 @@
         <form method="POST">
             {% csrf_token %}
             {{ form }}
-            <button class="btn btn-success">Add</button>
+            <button class="btn btn-success mt-2">Add</button>
         </form>
     </div>
 </div>
 <br>
+
 {% endblock %}

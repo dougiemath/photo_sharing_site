@@ -1,9 +1,11 @@
 {% extends 'feed_public.html' %}
 
 {% block content %}
+<title>{{searched}}: search results</title>
+
 <br>
 {% if searched %}
-<div class="container upload-a-photo">
+<div class="container pb-2 pt-2 border rounded container-custom">
     <h2 class="text-center">Search results for: '{{searched}}'</h2>
 </div>
 {% for post in posts %}
@@ -30,8 +32,8 @@
 
 {% else %}
 
-<div class="container upload-a-photo">
-    <h2 class="text-center">You do not have access to this page.</h2>
+<div class="container pb-2 pt-2 border rounded container-custom">
+    <h2 class="text-center">Please search for an image using the search bar above..</h2>
 </div>
 
 {% endif %}

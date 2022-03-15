@@ -4,48 +4,54 @@
 
 <title>{{ image.title }}</title>
 
-<div class="row image-details-container">
-    <div class="col-sm-8 style">
-        <img src=" {{ image.featured_image.url }}" style="width: 100%;">
+<div class="row mt-2">
+    <div class="col-sm-8 pr-2">
+        <img class="border rounded" src=" {{ image.featured_image.url }}" style="width: 100%;">
     </div>
-    <div class="col-sm-4 ">
+    <div class="col-sm-4 border rounded container-custom">
         <h2 class="image-details-title">{{ image.title }}</h2>
         <hr class="image-details-divder">
-        <div class="draft-status p-2 text-center">
+        <div class="text-center">
             {% if image.status == 1 %}
             <p class="text-success">This image has been published to the live feed.</p>
             {% else %}
-            <p class="text-warning">This image is still a 'draft' and is visible only to you.</p>
+            <p class="text-danger">This image is still a 'draft' and is visible only to you. </p>
+            <p class="text-danger">Comments are disabled until the image is published.</p>
             {% endif %}
         </div>
         <hr class="image-details-divder">
         <p class="image-details-content">{{ image.description }}</p>
+        <hr class="image-details-divder">
+        <div class="num-of-likes">
+            <p class="image-details-content">This picture has been liked <strong>{{ image.likes.count }}</strong>
+                times.</p>
+        </div>
         <p class="image-details-content"><small>Uploaded on {{ image.created_on }}</small></p>
         <hr class="image-details-divder">
         <p class="image-details-content">Image tags:
             {% for tag in image.tags.all %}
-            <a href="{% url 'image:tag' tag.slug %}" class="tag-links">{{tag.name}}</a>,
+            <a href="{% url 'image:tag' tag.slug %}" class="badge badge-pill badge-light p-2">{{tag.name}}</a>,
             {% endfor %}
         </p>
         <hr class="image-details-divder">
-        <p class="image-details-content">Options:
-            <div class="row justify-content-center">
-                <div class="col-6 d-flex justify-content-center">
-                    <a class="editing-buttons" href="{% url 'image:update' image.pk %}"> Edit Image</a>
+
+        <div class="row d-flex justify-content-between pb-3">
+            <p class="image-details-content">Options:
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-outline-dark" href="{% url 'image:update' image.pk %}">Edit Image</a>
                 </div>
-                <div class="col-6 d-flex justify-content-center">
-                    <a class="editing-buttons" href="{% url 'image:delete' image.pk %}">Delete Image</a>
+                <div class="d-flex justify-content-center">
+                    <a class="btn btn-outline-dark" href="{% url 'image:delete' image.pk %}">Delete Image</a>
                 </div>
-            </div>
+        </div>
     </div>
 </div>
-
-<div class="container-fluid  upload-a-photo" style=" width: 95%;">
+{% if image.status == 1 %}
+<div class="container-fluid pb-2 pt-2 border rounded container-custom mt-3" style=" width: 95%;">
 
     <div class="comment-title col-sm">
         <h2>Comments</h2>
     </div>
-    {% if user.is_authenticated  %}
     <div class="comments-details pl-3">
 
         {% if not image.comments.all %}
@@ -59,16 +65,13 @@
         </div>
         {% endfor %}
         {% endif %}
-
     </div>
-    <div class="comment-link col-sm mb-3 mt-4"><a class="editing-buttons"
+    <div class="comment-link col-sm mb-3 mt-3"><a class="btn btn-outline-dark"
             href="{% url 'image:add_comment' image.pk %}">Add a
             comment</a></div>
-    {% else %}
-    <p class="pl-3">You must be logged in to view comments</p>
-    {% endif %}
 </div>
-
+{% else %}
+{% endif %}
 <br>
 
 {% endblock %}

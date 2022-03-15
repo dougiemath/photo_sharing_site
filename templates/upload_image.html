@@ -2,16 +2,19 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+<title>Update Image</title>
+
 <br>
-<div class="container upload-a-photo">
+<div class="container pb-2 pt-2 border rounded container-custom">
     <div class="mx-auto">
-        <h1 class="mt-3 text-center">Upload a photo</h1>
+        <h1 class="mt-3 text-center">Edit photo {{photo}}</h1>
     </div>
     <div class="form-group">
         <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form|crispy }}
-            <button type="submit" class="btn btn-success mb-3">Add Photo</button>
+            <button type="submit" class="btn btn-success mb-3">Save Changes
+            </button>
         </form>
     </div>
 </div>

@@ -8,23 +8,6 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 
 
-# Create your views here.
-
-# register a new user
-def register(request):
-
-    if request.method =="POST":
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("/")
-
-    else:
-        form = RegistrationForm()	
-    
-    return render(request, "register.html", {"form":form})
-
-# public feed
 class ImageFeedView(ListView):
     model = Post     
     template_name = 'feed_public.html'
@@ -32,30 +15,37 @@ class ImageFeedView(ListView):
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     paginate_by = 30
 
-# image details page
-class ImageDetailView(DetailView):
-    model = Post
-    template_name = 'image_detail.html'
-    context_object_name = 'image'
-
-# view image's tags
 class ImageTagListView(ImageFeedView):
-    queryset = Post.objects.filter(status=1).order_by("-created_on")
+    
     template_name = 'taglist.html'
     
     def get_tag(self):
         return self.kwargs.get('tag')
 
     def get_queryset(self):
-        return self.model.objects.filter(tags__slug=self.get_tag(), status=1)
+        return self.model.objects.filter(tags__slug=self.get_tag())
     
-    def get_context_data(self, **kwargs):        
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["tag"] = self.get_tag()
         return context
 
-# create a new image
+class ImageDetailView(DetailView):
+    
+    model = Post
+    template_name = 'image_detail.html'
+    context_object_name = 'image'
+    liked = False
+
+    def liked(request, pk):
+        queryset = Post.objects.filter(status=1)
+        post = get_object_or_404(queryset, id=request.POST.get('image_id'))
+        
+        if post.likes.filter(id=request.user.id).exists():
+            liked = True
+
 class ImageCreateView(LoginRequiredMixin, CreateView):
+    
     model = Post
     form_class = UploadForm
     template_name = 'upload_image.html'
@@ -65,7 +55,6 @@ class ImageCreateView(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-# check user is valid
 class UserIsAuthor(UserPassesTestMixin):
 
     def get_photo(self):
@@ -78,24 +67,39 @@ class UserIsAuthor(UserPassesTestMixin):
         else:
             raise PermissionDenied('Sorry, nope!')
 
-# update / change image
 class ImageUpdateView(UserIsAuthor, UpdateView):
+    
     template_name = 'update.html'
-    model = Post
-    fields = ['title', 'description', 'tags', 'status']
-    success_url = reverse_lazy('image:list')
 
-# delete image
+    model = Post
+
+    fields = ['title', 'description', 'tags', 'status']
+    
+    def get_success_url(self):
+
+          post=self.kwargs['pk']
+          return reverse_lazy('image:user_image_details', kwargs={'pk': post})
+
 class ImageDeleteView(UserIsAuthor, DeleteView):
     template_name = 'delete.html'
     model = Post
-    success_url = reverse_lazy('image:user_feed')
+    success_url = reverse_lazy('image:list')
 
-#login view
+def register(request):
+    if request.method =="POST":
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/")
+
+    else:
+        form = RegistrationForm()	
+    
+    return render(request, "register.html", {"form":form})
+
 class CustomLoginView(LoginView):
     template_name = 'registration/login.html'
 
-#user feed page
 class UserPostList(LoginRequiredMixin, ListView):
 
     model = Post
@@ -104,17 +108,17 @@ class UserPostList(LoginRequiredMixin, ListView):
     context_object_name = 'photos'
     paginate_by = 30
 
+
     def get_queryset(self):
+
         user = self.request.user
         return Post.objects.filter(author=user)
 
-#user image page
 class UserImageDetails(DetailView):
     model = Post
     template_name = 'user_image_details.html'
     context_object_name = 'image'
 
-#add comment
 class AddCommentView(CreateView):
 
     model = Comment
@@ -125,9 +129,11 @@ class AddCommentView(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
-    success_url = reverse_lazy('image:list')
+    def get_success_url(self):
 
-#search for image by tag
+        post=self.kwargs['pk']
+        return reverse_lazy('image:user_image_details', kwargs={'pk': post})
+
 def search_results(request):
     if request.method == "POST":
         searched = request.POST['searched']
@@ -138,3 +144,14 @@ def search_results(request):
 
     else:
         return render(request, 'search_results.html',{})
+
+def LikeView(request, pk):
+    post = get_object_or_404(Post, id=request.POST.get('image_id'))
+ 
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+        liked = False
+    else:
+        post.likes.add(request.user)
+        liked = True
+    return HttpResponseRedirect(reverse('image:detail', args=[str(pk)]))

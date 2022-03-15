@@ -1,10 +1,10 @@
 {% extends "base.html" %}
 
-{% block title %}Sign Up Now{% endblock title %}
-
 {% block content %}
+<title>Sign Up Now</title>
+
 <br>
-<div class="container upload-a-photo border-0">
+<div class="container pb-2 pt-2 border rounded container-custom">
 	{% load crispy_forms_tags %}
 
 	<h1 class="display-4 fw-bold lh-1">Sign up now</h1>
@@ -16,10 +16,13 @@
 			<button class="btn btn-primary" type="submit">Register</button>
 		</form>
 	</div>
-	<div class = "pt-2">
-		<p>If you already have an account, <a href="{% url 'image:login' %}">login</a> instead.</p>
-	</div>	
-	
+	<div class="mt-4">
+		<p>If you already have an account, login here: <a class="btn btn-success btn-sm"
+				href="{% url 'image:login' %}">Log
+				In</a>
+		</p>
+	</div>
 </div>
-  <br>        
+<br>
+
 {% endblock content %}
