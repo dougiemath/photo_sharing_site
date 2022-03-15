@@ -13,6 +13,7 @@ from .views import(
     UserPostList,
     UserImageDetails,
     AddCommentView,
+    LikeView,
 )
 
 app_name = 'image'
@@ -50,4 +51,6 @@ urlpatterns = [
     path('photo/<int:pk>/comment/', AddCommentView.as_view(), name = 'add_comment'),
 
     path('search_results', views.search_results, name='search_results'),
+
+    path('like/<int:pk>', LikeView, name='like_post')
 ]
