@@ -1,1 +1,1 @@
-web: collectstatic gunicorn pss.wsgi
+web: gunicorn pss.wsgi
