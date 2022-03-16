@@ -49,7 +49,7 @@ class ImageCreateView(LoginRequiredMixin, CreateView):
     model = Post
     form_class = UploadForm
     template_name = 'upload_image.html'
-    success_url = reverse_lazy('image:list')
+    success_url = reverse_lazy('image:user_feed')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -73,7 +73,7 @@ class ImageUpdateView(UserIsAuthor, UpdateView):
 
     model = Post
 
-    fields = ['title', 'description', 'tags', 'status']
+    fields = ['title', 'featured_image', 'description', 'tags', 'status']
     
     def get_success_url(self):
 
@@ -83,7 +83,7 @@ class ImageUpdateView(UserIsAuthor, UpdateView):
 class ImageDeleteView(UserIsAuthor, DeleteView):
     template_name = 'delete.html'
     model = Post
-    success_url = reverse_lazy('image:list')
+    success_url = reverse_lazy('image:user_feed')
 
 def register(request):
     if request.method =="POST":

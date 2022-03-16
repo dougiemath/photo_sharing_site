@@ -28,6 +28,9 @@ unable to add new content
 search results page not formatting 
 --> moved for loop start to after grid layout
 
+could upload image details without uploading image
+--> removed default placeholder image
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome dougiemath,

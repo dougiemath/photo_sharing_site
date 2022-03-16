@@ -11,7 +11,7 @@ class Post(models.Model):
     title = models.CharField(max_length=45)
     description = models.TextField(max_length=500)
     created_on = models.DateTimeField(auto_now_add=True)
-    featured_image = CloudinaryField('image', default='placeholder')
+    featured_image = CloudinaryField('image')
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     tags = TaggableManager()
     status = models.IntegerField(choices=STATUS, default=0)
