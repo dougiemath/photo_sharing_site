@@ -168,6 +168,7 @@ ACCOUNT_LOGOUT_REDIRECT_URL ='/'
 # redirects to profile page if not configured.
 LOGIN_REDIRECT_URL = '/'
 
+ACCOUNT_EMAIL_REQUIRED = True
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
