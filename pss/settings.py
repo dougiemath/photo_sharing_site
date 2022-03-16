@@ -155,7 +155,6 @@ CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# LOGIN_URL = 'login'
-# LOGOUT_URL = 'logout'
-
 ACCOUNT_EMAIL_VERIFICATION = "none"
+
+ACCOUNT_EMAIL_REQUIRED = "none"
