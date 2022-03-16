@@ -9,7 +9,7 @@ from .views import(
     ImageCreateView,
     ImageUpdateView,
     ImageDeleteView,
-    CustomLoginView,
+    # CustomLoginView,
     UserPostList,
     UserImageDetails,
     AddCommentView,
@@ -19,13 +19,8 @@ from .views import(
 app_name = 'image'
 
 urlpatterns = [
-    # registration page
-    path('register/', views.register, name ="register"),
     path('', include("django.contrib.auth.urls")),
     
-    # login
-    path('login/', CustomLoginView.as_view(), name='login'),
-
     path('', ImageFeedView.as_view(), name='list'),
 
     path('image/<int:pk>/', ImageDetailView.as_view(), name='detail'),
