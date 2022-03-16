@@ -17,7 +17,7 @@
 
         <div class="likes d-flex flex-row">
 
-
+            {% if user.is_authenticated  %}
             <div class="like-btn">
                 <form action="{% url 'image:like_post' image.pk %}" method="POST">
                     {% csrf_token %}
@@ -27,35 +27,33 @@
                         <div class="mr-2"><button type="submit" name="image_id" value="{{ image.id }}"
                                 class="btn btn-outline-dark btn-sm">
                                 <ion-icon name="heart"></ion-icon>
-                            </button></div>
+                            </button>
+                        </div>
                         <div>
                             <p class="image-details-content">You have liked this picture.</p>
                         </div>
                     </div>
-
                     {% else %}
 
                     <button type="submit" name="image_id" value="{{ image.id }}" class="btn btn-outline-dark btn-sm">
                         <ion-icon name="heart-outline"></ion-icon>
                     </button>
-
                     {% endif %}
                 </form>
             </div>
-
+            
+            {% else %}
+            {% endif %}
         </div>
+        <hr class="image-details-divder"> 
+        <p class="image-details-content">{{ image.description }}</p>
+        <p class="image-details-content"><small>Uploaded by <i>{{ image.author }}</i> on {{ image.created_on }}</small>
+        </p>
         <hr class="image-details-divder">
         <div class="num-of-likes">
             <p class="image-details-content">This picture has been liked <strong>{{ image.likes.count }}</strong>
                 times.</p>
         </div>
-
-
-
-
-        <p class="image-details-content">{{ image.description }}</p>
-        <p class="image-details-content"><small>Uploaded by <i>{{ image.author }}</i> on {{ image.created_on }}</small>
-        </p>
         <hr class="image-details-divder">
         <p class="image-details-content">Image tags:
             {% for tag in image.tags.all %}

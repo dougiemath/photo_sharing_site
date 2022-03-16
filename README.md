@@ -25,6 +25,9 @@ after resetting heroku, reset_password has stopped working
 unable to add new content
 --> reset database to rewrite models.
 
+search results page not formatting 
+--> moved for loop start to after grid layout
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome dougiemath,

@@ -114,7 +114,7 @@ class UserPostList(LoginRequiredMixin, ListView):
         user = self.request.user
         return Post.objects.filter(author=user)
 
-class UserImageDetails(DetailView):
+class UserImageDetails(LoginRequiredMixin,DetailView):
     model = Post
     template_name = 'user_image_details.html'
     context_object_name = 'image'

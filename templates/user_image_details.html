@@ -22,11 +22,11 @@
         <hr class="image-details-divder">
         <p class="image-details-content">{{ image.description }}</p>
         <hr class="image-details-divder">
+        <p class="image-details-content"><small>Uploaded on {{ image.created_on }}</small></p>
         <div class="num-of-likes">
             <p class="image-details-content">This picture has been liked <strong>{{ image.likes.count }}</strong>
                 times.</p>
         </div>
-        <p class="image-details-content"><small>Uploaded on {{ image.created_on }}</small></p>
         <hr class="image-details-divder">
         <p class="image-details-content">Image tags:
             {% for tag in image.tags.all %}
