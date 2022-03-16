@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import RegistrationForm, UploadForm, CommentForm
+from .forms import UploadForm, CommentForm
 from django.contrib.auth.views import LoginView
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from pss_app.models import Post, Comment
@@ -85,21 +85,6 @@ class ImageDeleteView(UserIsAuthor, DeleteView):
     model = Post
     success_url = reverse_lazy('image:user_feed')
 
-def register(request):
-    if request.method =="POST":
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("/")
-
-    else:
-        form = RegistrationForm()	
-    
-    return render(request, "register.html", {"form":form})
-
-class CustomLoginView(LoginView):
-    template_name = 'registration/login.html'
-
 class UserPostList(LoginRequiredMixin, ListView):
 
     model = Post
@@ -155,3 +140,5 @@ def LikeView(request, pk):
         post.likes.add(request.user)
         liked = True
     return HttpResponseRedirect(reverse('image:detail', args=[str(pk)]))
+
+    
