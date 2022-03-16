@@ -1,1 +1,1 @@
-web: python manage.py collectstatic --no-input; gunicorn pss.wsgi
+web: collectstatic gunicorn pss.wsgi
