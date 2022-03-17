@@ -31,6 +31,9 @@ search results page not formatting
 could upload image details without uploading image
 --> removed default placeholder image
 
+Like button wasn't refreshing page when user clicks like
+--> imported httresponseredirect correctly
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome dougiemath,
