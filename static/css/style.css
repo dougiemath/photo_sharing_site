@@ -9,6 +9,10 @@ h6 {
   font-family: Lato, sans-serif;
 }
 
+.site-title{
+  font-size: 22px;
+}
+
 /* .....................Feed page grid */
 
 .row {
