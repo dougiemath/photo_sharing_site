@@ -69,7 +69,7 @@ class UserIsAuthor(UserPassesTestMixin):
         else:
             raise PermissionDenied('Sorry, nope!')
 
-class ImageUpdateView(UserIsAuthor, UpdateView):
+class ImageUpdateView(LoginRequiredMixin,UserIsAuthor, UpdateView):
     
     template_name = 'update.html'
 
@@ -82,7 +82,7 @@ class ImageUpdateView(UserIsAuthor, UpdateView):
           post=self.kwargs['pk']
           return reverse_lazy('image:user_image_details', kwargs={'pk': post})
 
-class ImageDeleteView(UserIsAuthor, DeleteView):
+class ImageDeleteView(LoginRequiredMixin, UserIsAuthor, DeleteView):
     template_name = 'delete.html'
     model = Post
     success_url = reverse_lazy('image:user_feed')
@@ -106,7 +106,7 @@ class UserImageDetails(LoginRequiredMixin,DetailView):
     template_name = 'user_image_details.html'
     context_object_name = 'image'
 
-class AddCommentView(CreateView):
+class AddCommentView(LoginRequiredMixin, CreateView):
 
     model = Comment
     form_class = CommentForm
