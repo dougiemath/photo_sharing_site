@@ -14,10 +14,10 @@
         <h2 class="image-details-title">{{ image.title }}</h2>
         <hr class="image-details-divder">
 
+    {% if user.is_authenticated  %}
+        <div class="d-flex flex-row mb-0">
 
-        <div class="likes d-flex flex-row">
-
-            {% if user.is_authenticated  %}
+            
             <div class="like-btn">
                 <form action="{% url 'image:like_post' image.pk %}" method="POST">
                     {% csrf_token %}
@@ -33,19 +33,24 @@
                             <p class="image-details-content">You have liked this picture.</p>
                         </div>
                     </div>
+                    
                     {% else %}
-
+                    <div class="">
                     <button type="submit" name="image_id" value="{{ image.id }}" class="btn btn-outline-dark btn-sm">
                         <ion-icon name="heart-outline"></ion-icon>
                     </button>
-                    {% endif %}
+                    </div>             
+                   
                 </form>
+                 
+                {% endif %}
             </div>
             
+        </div>    
             {% else %}
-            <hr class="image-details-divder"> 
+           
             {% endif %}
-        </div>
+        <hr class="image-details-divder">
         <p class="image-details-content">{{ image.description }}</p>
         <p class="image-details-content"><small>Uploaded by <i>{{ image.author }}</i> on {{ image.created_on }}</small>
         </p>
