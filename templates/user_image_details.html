@@ -61,7 +61,7 @@
         <br>
         <div class="comment-body">
             <strong>{{ comment.body }}</strong>
-            <p class="font-italic"><small>Comment added on {{ comment.created_on }} by {{ user.username }}</small></p>
+            <p class="font-italic"><small>Comment added on {{ comment.created_on }} by {{ comment.author }}</small></p>
         </div>
         {% endfor %}
         {% endif %}
