@@ -9,7 +9,6 @@ from .views import(
     ImageCreateView,
     ImageUpdateView,
     ImageDeleteView,
-    # CustomLoginView,
     UserPostList,
     UserImageDetails,
     AddCommentView,
