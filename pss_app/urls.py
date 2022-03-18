@@ -18,7 +18,7 @@ app_name = 'image'
 
 urlpatterns = [
     path('', include("django.contrib.auth.urls")),
-    
+
     path('', ImageFeedView.as_view(), name='list'),
 
     path('image/<int:pk>/', ImageDetailView.as_view(), name='detail'),
@@ -31,11 +31,13 @@ urlpatterns = [
 
     path('image/<int:pk>/delete/', ImageDeleteView.as_view(), name='delete'),
 
-    path('image/user_feed/', UserPostList.as_view(), name="user_feed"), 
+    path('image/user_feed/', UserPostList.as_view(), name="user_feed"),
 
-    path('image/<int:pk>/user_image_details', UserImageDetails.as_view(), name='user_image_details'),
+    path('image/<int:pk>/user_image_details', UserImageDetails.as_view(),
+         name='user_image_details'),
 
-    path('photo/<int:pk>/comment/', AddCommentView.as_view(), name = 'add_comment'),
+    path('photo/<int:pk>/comment/', AddCommentView.as_view(),
+         name='add_comment'),
 
     path('search_results', views.search_results, name='search_results'),
 
