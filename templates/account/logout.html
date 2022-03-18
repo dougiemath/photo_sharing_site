@@ -5,9 +5,9 @@
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-<br>
-<div class = "container pb-2 pt-2 border rounded container-custom text-center info">
-<h1>{% trans "Log Out" %}</h1>
+<title>Log Out</title>
+<div class = "container pb-2 pt-2 border rounded container-custom text-center info my-3">
+<h2>{% trans "Log Out" %}</h2>
 
 <p class = "image-details-content">{% trans 'Are you sure you want to log out?' %}</p>
 
@@ -19,5 +19,5 @@
   <button class="btn btn-danger mb-3" type="submit">{% trans 'Log Out' %}</button>
 </form>
 </div>
-<br>
+
 {% endblock %}

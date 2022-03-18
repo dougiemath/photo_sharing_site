@@ -6,9 +6,9 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-<br>
-<div class = "container pb-2 pt-2 border rounded container-custom info">
-<h1>{% trans "Sign In" %}</h1>
+<title>Sign In</title>
+<div class = "container pb-2 pt-2 border rounded container-custom info my-3">
+<h2>{% trans "Sign In" %}</h2>
 
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
@@ -25,5 +25,5 @@
 </form>
 
 </div>
-<br>
+
 {% endblock %}

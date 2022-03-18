@@ -4,39 +4,36 @@
 
 <title>{{searched}}: search results</title>
 
-<br>
 {% if searched %}
-    <div class="container pb-2 pt-2 border rounded container-custom">
+    <div class="container pb-2 pt-2 border rounded container-custom my-3">
         <h2 class="text-center">Search results for: '{{searched}}'</h2>   
-    <div class="row">
-        <div class="grid">
-            <!-- columns -->
-            <div class="grid-col grid-col--1"></div>
-            <div class="grid-col grid-col--2"></div>
-            <div class="grid-col grid-col--3"></div>
-            <div class="grid-col grid-col--4"></div>
-            <!-- items -->
-            {% for post in posts %}
-            <!-- {{ post.author }} -->
-            <div class="grid-item image-container-custom"><a href="{% url 'image:detail' post.id %}"> <img src="{{ post.featured_image.url }}"
-                        alt="image"></a></div>
+        <div class="row">
+            <div class="grid">
+                <!-- columns -->
+                <div class="grid-col grid-col--1"></div>
+                <div class="grid-col grid-col--2"></div>
+                <div class="grid-col grid-col--3"></div>
+                <div class="grid-col grid-col--4"></div>
+                <!-- items -->
+                {% for post in posts %}
+                <!-- {{ post.author }} -->
+                <div class="grid-item image-container-custom"><a href="{% url 'image:detail' post.id %}"> <img src="{{ post.featured_image.url }}"
+                            alt="{{ post.title }}"></a></div>
 
-            {% empty %}
-            <div class="container upload-a-photo mt-2 border-0">
-                <p class="text-center font-italic">There are no images matching your search.<p>
+                {% empty %}
+                <div class="container upload-a-photo mt-2 border-0">
+                    <p class="text-center font-italic">There are no images matching your search.<p>
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
-
 {% else %}
 
-<div class="container pb-2 pt-2 border rounded container-custom">
+<div class="container pb-2 pt-2 border rounded container-custom my-3">
     <h2 class="text-center">Please search for an image by entering some information into the search bar above.</h2>
 </div>
 
 {% endif %}
 
-
-<br>
 {% endblock %}
