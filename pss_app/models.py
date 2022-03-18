@@ -12,6 +12,7 @@ Images are being treated as 'post' due
 to similar setup to blog
 """
 
+
 class Post(models.Model):
     title = models.CharField(max_length=45)
     description = models.TextField(max_length=500)
@@ -20,7 +21,9 @@ class Post(models.Model):
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     tags = TaggableManager()
     status = models.IntegerField(choices=STATUS, default=0)
-    likes = models.ManyToManyField(User, related_name='blogpost_like', blank=True)
+    likes = models.ManyToManyField(User,
+                                   related_name='blogpost_like',
+                                   blank=True)
 
     class Meta:
         ordering = ["-created_on"]
@@ -33,9 +36,13 @@ class Post(models.Model):
 
 
 """
-Comments model"""
+Comments model
+"""
+
+
 class Comment(models.Model):
-    post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name='comments')
+    post = models.ForeignKey(Post, on_delete=models.CASCADE,
+                             related_name='comments')
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
