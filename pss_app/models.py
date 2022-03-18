@@ -7,6 +7,11 @@ from taggit.managers import TaggableManager
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
+"""
+Images are being treated as 'post' due
+to similar setup to blog
+"""
+
 class Post(models.Model):
     title = models.CharField(max_length=45)
     description = models.TextField(max_length=500)
@@ -26,6 +31,9 @@ class Post(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
+
+"""
+Comments model"""
 class Comment(models.Model):
     post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name='comments')
     author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)

@@ -1,8 +1,9 @@
 from django.contrib import admin
 from pss_app.models import Post, Comment
 
-# Register your models here.
-
+"""
+Post section for admin area
+"""
 @admin.register(Post)
 class PhotoAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_on', 'author','tags')
@@ -10,7 +11,9 @@ class PhotoAdmin(admin.ModelAdmin):
     search_fields = ('title', 'content', 'tags', 'created_on')
     
 
-# comment section of admin site
+"""
+Comment section for admin area
+"""
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('author', 'body', 'post', 'created_on', 'active')
