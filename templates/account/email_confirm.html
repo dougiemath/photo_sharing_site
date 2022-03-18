@@ -9,7 +9,7 @@
 {% block content %}
 <br>
 <div class = "d-flex justify-content-center">
-    <div class = "col-sm-4 border rounded container-custom">
+    <div class = "col-sm-11 border rounded container-custom">
     <h1>{% trans "Confirm E-mail Address" %}</h1>
 
     {% if confirmation %}
@@ -20,7 +20,7 @@
 
     <form method="post" action="{% url 'account_confirm_email' confirmation.key %}">
     {% csrf_token %}
-        <button class = "btn btn-success" type="submit">{% trans 'Confirm' %}</button>
+        <button class = "btn btn-success mb-3" type="submit">{% trans 'Confirm' %}</button>
     </form>
 
     {% else %}
