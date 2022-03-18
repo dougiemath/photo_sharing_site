@@ -8,14 +8,18 @@ from allauth.account.forms import SignupForm
 """
 Upload Image Form
 """
+
+
 class UploadForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ('title', 'featured_image','description', 'tags', 'status')
+        fields = ('title', 'featured_image', 'description', 'tags', 'status')
 
 """
 Comment Form
 """
+
+
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
