@@ -29,19 +29,57 @@ This site was designed as a place for people to come together to share their own
 ---
 
 ## Features
-* Navigation Bar
-
-![Drag Racing]()
-
-* Footer
 * Landing Page
+
+![Home Page](pss-screenshots/home-page-not-logged-in.png)
+
+The home page displays a thumbnail grid (Clocade View) of all of the published images on the site.  The navigation bar for users who are not logged in contains a 'login' and 'sign up' link.  The site title serves as a link to this page.
+
+For logged in users:
+
+![Home page](pss-screenshots/home-page-logged-in.png)
+
+The thumbnail grid content remains the same, but the navigation bar now shows the users name, a link to the users page, a seach bar, a link to a page to upload an image and a log out link.
+
+* User's Page
+
+![Users Page](pss-screenshots/users-page.png)
+
+The same grid has been employed for continuity purposes but this grid will display ONLY images that belong to the user - both published and draft.
+
 * Image Details
+
+There are 3 image detail views: 
+1 - for not logged in users
+2 - public images for logged in users
+3 - an image detail view for a user's own image
+
+Image details for non-logged in users:
+
+![Image Details](pss-screenshots/image-details-not-logged-in.png)
+
+There is the picture in an enlarged form with information about it.  There is also the image's tags so a user can search for other images with the same tag.  There is NO option to 'like' this image nad no option to 'comment'
+
+Image details for logged-in users:
+
+![Image Details 2](pss-screenshots/image-details-logged-in.png)
+
+There is now an option to 'like' the image with the ability to add a comment below:
+
+![Comment Section](pss-screenshots/comments-section.png)
+
+Image details for User's own image:
+
+![Image Details 3](pss-screenshots/image-details-draft.png)
+
+This screensht shows an image which has not been made public yet.  There are instructions on how to do so.  Once it is made public, the user will see this:
+
+![Image Details 4](pss-screenshots/image-details-published.png)
+
 * Log In
 * Sign Up
 * Forgot Password
-* Logged-In Landing Page
-* User’s Page
-* User’s Image Details
+
 * Log Out
 * Upload an Image
 * Edit an Image
