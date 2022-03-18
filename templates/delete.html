@@ -1,10 +1,11 @@
 {% extends 'base.html' %}
 
-{% block content %}
-<title>Delete Image</title>
+{% block title %}Delete Image{% endblock %}
 
-<br>
-<div class="container pb-2 pt-2 border rounded container-custom">
+
+{% block content %}
+
+<div class="container pb-2 pt-2 border rounded container-custom my-3">
     <div class="form-group mx-auto">
         <h2 class="text-center">
             You are going to <span class="text-danger">delete</span>: "<i>{{ post.title }}</i>
@@ -28,5 +29,5 @@
         </div>
     </div>
 </div>
-<br>
+
 {% endblock %}
