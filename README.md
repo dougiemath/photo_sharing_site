@@ -30,6 +30,9 @@ This site was designed as a place for people to come together to share their own
 
 ## Features
 * Navigation Bar
+
+![Drag Racing](Dragster.jpg)
+
 * Footer
 * Landing Page
 * Image Details
