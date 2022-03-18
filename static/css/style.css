@@ -13,6 +13,10 @@ h6 {
   font-size: 22px;
 }
 
+form{
+  font-family: Lato, sans-serif;
+}
+
 /* .....................Feed page grid */
 
 .row {
