@@ -29,7 +29,7 @@ This site was designed as a place for people to come together to share their own
 ---
 
 ## Features
-* Landing Page
+### Landing Page
 
 ![Home Page](pss-screenshots/home-page-not-logged-in.png)
 
@@ -40,14 +40,15 @@ For logged in users:
 ![Home page](pss-screenshots/home-page-logged-in.png)
 
 The thumbnail grid content remains the same, but the navigation bar now shows the users name, a link to the users page, a seach bar, a link to a page to upload an image and a log out link.
-
-* User's Page
-
-![Users Page](pss-screenshots/users-page.png)
+___ 
+### User's Page:
 
 The same grid has been employed for continuity purposes but this grid will display ONLY images that belong to the user - both published and draft.
 
-* Image Details
+![Users Page](pss-screenshots/users-page.png)
+___
+
+### Image Details
 
 There are 3 image detail views: 
 1 - for not logged in users
@@ -76,48 +77,57 @@ Image details for User's own image:
 This screensht shows an image which has not been made public yet.  There are instructions on how to do so.  Once it is made public, the user will see this:
 
 ![Image Details 4](pss-screenshots/image-details-published.png)
+___
 
-* Log In
-![Log In](pss-screenshots/log-in.png)
+### Log In
 
 The user is presented with a log in form that was styled using Crispy Forms.  Crispy Forms was chosen for all forms. There is also an option to reset passwords.
 
-* Sign Up
+![Log In](pss-screenshots/log-in.png)
+___ 
 
-![Sign Up Screen](pss-screenshots/sign-up-screen.png)
+### Sign Up
 
 The user must sign up with an email address as they will be unable to access the site without.  If the user fails to complete any field, the sign-up process will fail.
 
-* Forgot Password
+![Sign Up Screen](pss-screenshots/sign-up-screen.png)
+___
 
-![Reset Password](pss-screenshots/password-reset.png)
+### Forgot Password
 
 The user will have an opportunity to reset their password by entering their email address and following a link that they will receive in their email.
 
-* Log Out
+![Reset Password](pss-screenshots/password-reset.png)
+___
 
-![Log Out](pss-screenshots/log-out.png)
+### Log Out
 
 The user is not logged out on clicking the link in the nav bar, but directed to a confirmation page.
 
-* Upload an Image
+![Log Out](pss-screenshots/log-out.png)
+___
+
+### Upload an Image
+
+This is the image upload screen where users can upload images in a number of formats, including but not limited to:'bmp', 'dib 'ps', 'flc', 'gif', 'png', 'ico', 'tiff', 'jpg', 'jpeg'.  It should be noted that RAW fils (.raw) cannot be uploaded.
 
 ![Upload an Image 1](pss-screenshots/upload-a-photo-pt1.png)
 ![Upload an Image 2](pss-screenshots/upload-a-photo-pt2.png)
 
-This is the image upload screen where users can upload images in a number of formats, including but not limited to:'bmp', 'dib 'ps', 'flc', 'gif', 'png', 'ico', 'tiff', 'jpg', 'jpeg'.  It should be noted that RAW fils (.raw) cannot be uploaded.
+___
 
-
-* Edit an Image
-
-![Edit Image](pss-screenshots/edit-photo.png)
+### Edit an Image
 
 If the user notices a spelling/factual error after publishing their image, they can fix it here.  They can also change the uploaded image.
 
-* Delete an Image
+![Edit Image](pss-screenshots/edit-photo.png)
+___
+
+### Delete an Image
+
+The user will be given an opportunity to back out of the deletion process.  Once an image is deleted from the database it cannot be recovered.
 
 ![Delete Image](pss-screenshots/delete-image.png)
-The user will be given an opportunity to back out of the deletion process.  Once an image is deleted from the database it cannot be recovered.
 
 ## Testing
 
@@ -153,33 +163,25 @@ There was no automated testing carried out during this project.  Each User Story
 * As I Site User I can reset my password so that I can log in if I forget my credentials.
     * On the ‘Log In’ page there is an option ‘Forgot Password’.  Clicking this will take you to a page asking you to input your email address.  This sends an email to the address inputted.  Within this email is a link to a ‘change password’ page which will ask the user to enter a new password twice.  Should the passwords be valid, the user will see a screen confirming that their password has been changed.
 
-* As a Site Admin I can remove users so that I can ensure a code of conduct is followed 
-&
-* As a Site Admin I can remove photos/posts so that I can keep the content family friendly
-&
+* As a Site Admin I can remove users so that I can ensure a code of conduct is followed & 
+* As a Site Admin I can remove photos/posts so that I can keep the content family friendly & 
 * As a Site Admin I can remove comments that are offensive so I can keep the comment section family friendly
     * All of these are taken care of automatically by Django’s admin system.
 
 ### Bugs
 
-|Issue|Details|
-|---|---|
-| Problem 1:   |   registration form won't display in bootstrap styling  |
-| Cause | Crispy Forms wasn’t installed correctly  |
-| Solution  | added 'crispy_forms' to installed apps  |
-| Problem 2:  | Password reset won’t send email  |
-| Cause  | Django-Auth and Gitpod don’t see eye-to-eye and will not send emails from a Google SMPT account. This issue was not present when working in VS Code. |
-| Solution  | Removed Django-Auth and installed Allauth.  The issue remained, however emails can be sent from the live site (Heroku).    |
-| Problem 3:  | When adding new fields to Post model migration failed repeatedly  |
-| Cause  | Unsure of the underlying cause  |
-| Solution  | Reset the database in Heroku and could migrate accordingly.  |
-| Problem 4:  | Search results not formatting correctly  |
-| Cause  | Incorrect use of FOR loop  |
-| Solution  | Rewrote FOR loop and placed it at the start of grid layout  |
-| Problem 5:  | Possible to upload ‘blank’ image  |
-| Cause  | Model was written to display a placeholder image.  |
-| Solution  | Removed placeholder image from model.  |
-| Problem 6:  | Like button wasn’t refreshing page when user was ‘liking’ a post  |
-| Cause  | Spelling mistake in Django import  |
-| Solution  | Fixed the spelling mistake in  HttpResponseRedirect  |
+|  Bug Number         | Problem                                                                                           | Cause                                                                                                                                                 | Solution                                                                                                               |
+|-----------|---------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| Bug 1     | Registration form won't display in bootstrap styling                                              | Crispy Forms wasn't installed properly                                                                                                                | added 'crispy_forms' to installed apps                                                                                 |
+| Bug 2     | Password Reset won't send email                                                                   | Django-Auth and Gitpod don't see eye-to-eye and will not send emails from a Google SMPT account.  This issue was not present when working in VS Code. | Removed django-auth and installed allauth.  The issue remained in Gitpod, but is not present in teh live site (Heroku) |
+| Bug 3     | When adding new fields to Post model, migration failed repeatedly                                 | Unsure of underlying cause                                                                                                                            | Reset the database in Heroku                                                                                           |
+| Bug 4     | Search Results not formatting correctly                                                           | Incorrect use of FOR loop                                                                                                                             | Rewrote FOR loop and placed it at the start of grid                                                                    |
+| Bug 5     | Possible to upload 'blank' image                                                                  | Model was written to display a placeholder image without a placeholder being defined.                                                                 | Removed placeholder from model                                                                                         |
+| Bug 6     | 'Like' button wasn't refreshing the page when user 'liked' a post                                 | Spelling mistake in django import.                                                                                                                    | Fixed the spelling mistake (HttpResponseRedirect)                                                                      |
+| Bug 7     | 404 and 500 page outside of site                                                                  | No 404.html or 500.html page were created so django directed to the default                                                                           | Added a 404.html and 500.html page                                                                                     |
+| Bug 8     | Users were able to access restrictted pages without logging in                                    | No privacy was associated with Upload/Edit/Delete image pages                                                                                         | Added LoginRequiredMixins to each class in views.py.                                                                   |
+| Bug 9     | Comments were not displaying the comment author but were displaying the logged in user's username | The HTML was incorrect, user.username was defined and not comment.author                                                                              | Changed to comment.author                                                                                              |
+| Bug 10    | Like button not symmetrical                                                                       | Padding added to bottom only                                                                                                                          | Added class mb-1 to icon                                                                                               |
 
+
+Deployment
