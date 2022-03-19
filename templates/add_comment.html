@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 
+{% block title %}Add Comment{% endblock %}
+
 {% block content %}
-<title>Add Comment</title>
 
-
-<br>
-<div class="container pb-2 pt-2 border rounded container-custom">
+<div class="container pb-2 pt-2 border rounded container-custom my-3">
     <h3>Leave a comment:</h3>
     <p>Posting as: {{ user.username }}</p>
 
@@ -18,6 +17,5 @@
         </form>
     </div>
     <a class="btn btn-outline-dark" onclick="javascript:history.back()">Exit Without Saving</a></div>
-<br>
 
 {% endblock %}
