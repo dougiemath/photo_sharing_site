@@ -1,9 +1,9 @@
 # Photo Sharing Site
 ## About
+
 As a keen amateur photographer I wanted a private site to share my photos.  Social Media offers a fine alternative, but, as an image owner, I was never happy with the lack of control I had over who says what about my images.  
 
 This site was designed as a place for people to come together to share their own photos – whether they are professional or not.  The intention is to foster a community of photographers where ownership of content remains in their hands.
----
 
 ## UX
 
@@ -67,6 +67,7 @@ Image details for logged-in users:
 There is now an option to 'like' the image with the ability to add a comment below:
 
 ![Comment Section](pss-screenshots/comments-section.png)
+![Add a Comment](pss-screenshots/leave-a-comment.png)
 
 Image details for User's own image:
 
@@ -77,13 +78,46 @@ This screensht shows an image which has not been made public yet.  There are ins
 ![Image Details 4](pss-screenshots/image-details-published.png)
 
 * Log In
+![Log In](pss-screenshots/log-in.png)
+
+The user is presented with a log in form that was styled using Crispy Forms.  Crispy Forms was chosen for all forms. There is also an option to reset passwords.
+
 * Sign Up
+
+![Sign Up Screen](pss-screenshots/sign-up-screen.png)
+
+The user must sign up with an email address as they will be unable to access the site without.  If the user fails to complete any field, the sign-up process will fail.
+
 * Forgot Password
 
+![Reset Password](pss-screenshots/password-reset.png)
+
+The user will have an opportunity to reset their password by entering their email address and following a link that they will receive in their email.
+
 * Log Out
+
+![Log Out](pss-screenshots/log-out.png)
+
+The user is not logged out on clicking the link in the nav bar, but directed to a confirmation page.
+
 * Upload an Image
+
+![Upload an Image 1](pss-screenshots/upload-a-photo-pt1.png)
+![Upload an Image 2](pss-screenshots/upload-a-photo-pt2.png)
+
+This is the image upload screen where users can upload images in a number of formats, including but not limited to:'bmp', 'dib 'ps', 'flc', 'gif', 'png', 'ico', 'tiff', 'jpg', 'jpeg'.  It should be noted that RAW fils (.raw) cannot be uploaded.
+
+
 * Edit an Image
+
+![Edit Image](pss-screenshots/edit-photo.png)
+
+If the user notices a spelling/factual error after publishing their image, they can fix it here.  They can also change the uploaded image.
+
 * Delete an Image
+
+![Delete Image](pss-screenshots/delete-image.png)
+The user will be given an opportunity to back out of the deletion process.  Once an image is deleted from the database it cannot be recovered.
 
 ## Testing
 
