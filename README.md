@@ -135,21 +135,71 @@ The user will be given an opportunity to back out of the deletion process.  Once
 
 There was no automated testing carried out during this project.  Each User Story was manually tested as follows:
 
-* As a Site User I can view a list of images so I can choose which one to learn more about
-    * On arrival at the website there is a grid of images clearly on display.  The User does not need to be logged in order to see this. A second grid of images, which includes the User’s (public/draft) images is available ONLY after registration/logging in
-* As a Site User I can search for images by tag so that I can only see images that I want to see.
-    * At the top of the screen is a search bar which the user can enter a term.  This will search the list of ‘tags’ that are put in by an image uploader.  If the search cannot find any tags, it returns a message stating that there were no results.  If it finds pictures with tags, it will display a search results page with all of the PUBLISHED images that contain the searched-for term. Draft images are excluded from the search.
-* As a Site User I can click on an image to access more information it so that I can learn more about it.
-    * Prior to logging in, from the landing page, the user can click on an image and read some limited information about the image.
-    * After logging in, the user can click on an image and read more information about the image and also have the ability to read/add comments and likes.
-    * After logging in, from the user’s personal page, the user can click on an image and read more information about it, including its status (published/draft).  
-* As a Site User I can upload my own images so that I can share my content.
-    * After logging in, a button will appear at the top of the screen saying ‘Upload Image’.  From here the user will be directed to a dedicated page where the user can upload an image with the following information: Title, Image, Description, Tags, Status.  The upload will not be successful if any of the fields are left blank.  This will display an error to the user.  
-    * A successful upload will redirect the user to the user’s personal page where the new image will be located on the left.
-    * There is also the option of leaving the page without saving a new image.  This will return the user to the user’s page.
-* As a Site Admin I can create draft content so that I can leave and finish it at a later time
-    * This was decided to be implemented for all users.  On the ‘Image Upload’ screen is an option regarding the status of an image – Published or Draft.  If the user chooses ‘Draft’, then the image will only be viewable from the User’s personal page, not the public feed.  If the user chooses ‘Published’ then image will be viewable from both. 
-* As a Site User I can delete my posts so that can retain control of my images
+### As a Site User I can view a list of images so I can choose which one to learn more about
+
+| Test                                                    | Result                                      | Verdict |
+|---------------------------------------------------------|---------------------------------------------|---------|
+| Entered the site's URL                                  | All public images are displayed.            | Pass    |
+| Signed up & Logged into site and clicked on 'Main Feed' | All public images are displayed.            | Pass    |
+| Signed up & Logged into Site and clicked on 'My Page'   | All images owned by the user are displayed. | Pass    |
+
+### As a Site User I can search for images by tag so that I can only see images that I want to see.
+
+| Test                                                                                                  | Result                                                                      | Verdict |
+|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|---------|
+| Entered the site's URL and selected a random image.  From here, clicked on one of the displayed tags. | Clicking on tag directs user to a page displaying images with the same tag. | Pass    |
+| Signed up & Logged into site and clicked on 'Main Feed' and selected a random image.  From here, clicked on one of the displayed tags.                                               | Clicking on tag directs user to a page displaying images with the same tag.                                                                            | Pass    |
+| Signed up & Logged into Site and clicked on 'My Page' and selected a random image.  From here, clicked on one of the displayed tags.                                                  | Clicking on tag directs user to a page displaying images with the same tag.                                                                            | Pass    |
+
+### As a Site User I can click on an image to access more information it so that I can learn more about it.
+
+| Test                                                                                                  | Result                                                                        | Verdict |
+|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|---------|
+| Entered the site's URL and selected a random image.  From here, clicked on one of the displayed tags. | Clicking on image displays large copy of image and more information about it. | Pass    |
+| Signed up & Logged into site and clicked on 'Main Feed' and selected a random image.                  | Clicking on image displays large copy of image and more information about it.                                                                              | Pass    |
+| Signed up & Logged into Site and clicked on 'My Page' and selected a random image.                    | Clicking on image displays large copy of image and more information about it.                                                                              | Pass    |
+
+
+### As a Site User I can upload my own images so that I can share my content.
+
+| Test                                                                             | Result                                                                                          | Verdict |
+|----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|---------|
+| Entered the site's URL and attempted to click 'Upload an Image'                  | Cannot access the image upload section without a user account                                   | Pass    |
+| Signed up & Logged into site and clicked on 'Upload an Image'                    | Image Upload section displays.                                                                  | Pass    |
+| Completed form by adding: title, .png file, description, tag and setting status to 'Published'. | Image uploaded successfully and displays as the first image in the public feed and user's page. | Pass    |
+| Completed form by leaving one field blank.                                       | Site will not allow user to complete the upload process with one or more empty fields.          | Pass    |   
+    
+
+### As a Site Admin I can create draft content so that I can leave and finish it at a later time
+(This was implemented for all users.)
+
+| Test                                                                                            | Result                                                                                                                        | Verdict |
+|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|---------|
+| Entered the site's URL and attempted to click 'Upload an Image'                                 | Cannot access the image upload section without a user account                                                                 | Pass    |
+| Signed up & Logged into site and clicked on 'Upload an Image'                                   | Image Upload section displays.                                                                                                | Pass    |
+| Completed form by adding: title, .png file, description, tag and setting status to 'Published'. | Image uploaded successfully and displays as the first image in the public feed and user's page.                               | Pass    |
+| Completed form by adding: title, .png file, description, tag, and setting status to 'Draft'     | Image uploaded successfully and displays as the first image on the user's page only.  Image does not display on the man feed. | Pass    |
+
+
+### As a Site User I can delete my posts so that can retain control of my images
+
+| Test                                                          | Result                                                                                                   | Verdict |
+|---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|---------|
+| Entered the site as a logged-in user and clicked on 'My Page' | List of images that are public and private to the user displayed.                                        |         |
+| Clicked on a random image.                                    | Image details displayed with option to 'Edit Image' and 'Delete Image'                                   |         |
+| Clicked on 'Delete Image'                                     | Directed to page asking if user is certain. Two buttons are presented to the user: 'Cancel' and 'Delete' |         |
+| Clicked on 'Delete'                                           | Image was removed from user's page and public feed.                                                      |         |
+| Accessed Admin as superuser                                   | Image was removed from database                                                                          | Pass    | **Test 2**
+|                                                               |                                                                                                          |         |
+| Entered the site as a logged-in user and clicked on 'My Page' | Entered the site as a logged-in user and clicked on 'My Page'                                            |         |
+| Clicked on a random image.                                    | Image details displayed with option to 'Edit Image' and 'Delete Image'                                   |         |
+| Clicked on 'Delete Image'                                     | Directed to page asking if user is certain. Two buttons are presented to the user: 'Cancel' and 'Delete' |         |
+| Clicked on 'Cancel'                                           | Returned to the image details page.  Image is not deleted.                                               | Pass    |
+
+
+
+
+
     * When selecting an image from the user’s personal page, there is an option to delete the image that the user is currently looking at.  Selecting this option will direct the user to a ‘delete’ page which gives the user the opportunity to change their mind.  Once the image is deleted, it cannot be retrieved.
 * As a Site User I can view/leave comments made from other users so I can read an existing conversation and join in.
     * After logging in, each picture that is selected will have a comments feature enabled.  From here, the user can read all of the exiting comments, or click a button that will take them a ‘Add Comment’ page.  This was chosen to be placed on a separate page for design purposes.
