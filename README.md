@@ -189,29 +189,71 @@ There was no automated testing carried out during this project.  Each User Story
 | Clicked on a random image.                                    | Image details displayed with option to 'Edit Image' and 'Delete Image'                                   |         |
 | Clicked on 'Delete Image'                                     | Directed to page asking if user is certain. Two buttons are presented to the user: 'Cancel' and 'Delete' |         |
 | Clicked on 'Delete'                                           | Image was removed from user's page and public feed.                                                      |         |
-| Accessed Admin as superuser                                   | Image was removed from database                                                                          | Pass    | **Test 2**
-|                                                               |                                                                                                          |         |
+| Accessed Admin as superuser                                   | Image was removed from database                                                                          | Pass    |
+| **Test 2**                                                    | **Result**                                                                                                         | **Verdict**        |
 | Entered the site as a logged-in user and clicked on 'My Page' | Entered the site as a logged-in user and clicked on 'My Page'                                            |         |
 | Clicked on a random image.                                    | Image details displayed with option to 'Edit Image' and 'Delete Image'                                   |         |
 | Clicked on 'Delete Image'                                     | Directed to page asking if user is certain. Two buttons are presented to the user: 'Cancel' and 'Delete' |         |
 | Clicked on 'Cancel'                                           | Returned to the image details page.  Image is not deleted.                                               | Pass    |
 
+### As a Site User I can view/leave comments made from other users so I can read an existing conversation and join in.
+
+| Test - View Comments                                                | Result                                                                                                                                     | Verdict |
+|---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| Entered the site as a logged-in user and clicked on a random image. | Image Details page for chosen image displays. Comments feed displays below image with button to 'Add Comment'.                             | Pass    |
+| **Test - Add Comments**                                             | **Result**                                                                                                                                           | **Verdict**         |
+| Entered the site as a logged-in user and clicked on a random image. | Image Details page for chosen image displays. Comments feed displays below image with button to 'Add Comment'.                             |         |
+| Clicked 'Add Comment'                                               | Directed to 'Add Comment' page and presented with a text box and two buttons: 'Add' and 'Exit Without Saving'                              |         |
+| Added information to text input and clicked 'Add'                   | Comment added to image.  Directed to Image details page and new comment is at the top of the comments list with comment author displaying. | Pass    |
+| No information added and clicked 'Add'                              | Error message displays.  It is not possible to add a blank comment.                                                                        | Pass    |
+| Attempted to spam comment body with extremely long comment          | Comment body prevents comments longer than 500 characters.                                                                                 | Pass    |
+| Clicked 'Exit Without Saving'                                       | Directed back to image, no comment is displayed. Checking 'Admin' confirms no comment is logged.                                           | Pass    |
 
 
+### As a site User I can like/ view the number of likes other users' pictures so that I can interact with the site
+
+| Test                                                                    | Result                                                                                                                                                                                           | Verdict |
+|-------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| Entered site URL and clicked on a random image as a non-logged-in user. | Directed to Image Details page for the image that I selected.  On this page is displayed a message telling the user to log in in order to 'Like' the image.  The number of 'Likes' is displayed. | Pass    |
+| Entered site URL and clicked on a random image as a logged-in user.     | Directed to the Image Details page for the image that I selected.  On this page is a button with a 'heart outline' on it and the number of likes is displayed.                                   |         |
+| Clicked on the 'Like' button.                                           | The heart is now filled and a message stating 'You have liked this image' displays.  The number of 'likes' increases by 1.                                                                       | Pass    |
+| Clicked on the 'Like' button again.                                     | The heart is now an outline and the message has disappeared.  The total number of 'likes' has decreased by one.                                                                                  | Pass    |
 
 
-    * When selecting an image from the user’s personal page, there is an option to delete the image that the user is currently looking at.  Selecting this option will direct the user to a ‘delete’ page which gives the user the opportunity to change their mind.  Once the image is deleted, it cannot be retrieved.
-* As a Site User I can view/leave comments made from other users so I can read an existing conversation and join in.
-    * After logging in, each picture that is selected will have a comments feature enabled.  From here, the user can read all of the exiting comments, or click a button that will take them a ‘Add Comment’ page.  This was chosen to be placed on a separate page for design purposes.
-    * From this page, the user can write a comment in the empty field.  Clicking ‘Add Comment’ will direct he user back to the image.
-* As a site User I can like/ view the number of likes other users' pictures so that I can interact with the site
-    * After logging in, users will be able to click on an image and be presented an option to ‘like’ a picture.  Clicking on this button will change the image from a hollow heart, to a filled heart and also display text confirming that the user has liked the image.  A user can only like an image once.  This ‘like’ feature is not available from the user’s personal page, but the number of likes will be displayed.
-* As a Site User I can Register for an account to be able to share my pictures.
-    * On arrival at the site, in the top corner of the page is an option to ‘Sign Up’. This directs the user to a ‘Sign up’ page. On this page the user will be asked for a username, email address and a password (repeated).  The user cannot sign up if one or more fields are blank.
-    * On completing this form, the user is directed to their email account to verify their email address.  The user cannot log in to the site without verifying their email.  
-    * On clicking the link in the user’s email they will be directed to a page asking them to confirm their email address.  Clicking confirm will redirect them into the site and grants them access.
-* As I Site User I can reset my password so that I can log in if I forget my credentials.
-    * On the ‘Log In’ page there is an option ‘Forgot Password’.  Clicking this will take you to a page asking you to input your email address.  This sends an email to the address inputted.  Within this email is a link to a ‘change password’ page which will ask the user to enter a new password twice.  Should the passwords be valid, the user will see a screen confirming that their password has been changed.
+### As a Site User I can Register for an account to be able to share my pictures.
+
+| Test                                                        | Result                                                                                  | Verdict     |
+|-------------------------------------------------------------|-----------------------------------------------------------------------------------------|-------------|
+| Entered site URL                                            | Arrived at site as a non-logged-in user.                                                |             |
+| Clicked 'Sign Up' in the top right corner                   | Directed to a page asking for: email, username, password and password (confirm)         |             |
+| Completed the form with unique data                         | Directed to a page confirming that an email has been sent to the email address entered. |             |
+| Checked Email                                               | Email received from Gmail (as set in Heroku) asking user to confirm email address.      |             |
+| Confirmed Email                                             | Returned to site as a logged-in user                                                    | Pass        |
+| **Test 2 - Incorrect/invalid data**                         | **Result**                                                                              | **Verdict** |
+| Attempted to sign up with a username that is already in use | Page refreshes with an error displayed under the username field                         | Pass        |
+| Attempted to sign up with an email that is already in use   | Page refreshes with an error displayed under the email field                            | Pass        |
+| Attempted to complete form with empty field                 | Page refreshes with an error displayed under empty field.                               | Pass        |
+| Attempted to complete form with two different passwords     | Page refreshes with error displayed under password field.                               | Pass        |
+
+
+### As I Site User I can reset my password so that I can log in if I forget my credentials.
+
+| Test                                     | Result                                                                      | Verdict     |
+|------------------------------------------|-----------------------------------------------------------------------------|-------------|
+| Entered Site URL                         | Arrived at site as a non-logged-in user                                     |             |
+| Clicked 'Log in' int he top right corner | Directed to log in page.  Below the log in form is a link 'Forgot Password' |             |
+| Clicked 'Forgot Password'                | Directed to Password Reset which asks user to enter their email address.    |             |
+| Entered email address                    | Directed to a page instructing user to check the email that was entered.    |             |
+| Checked email                            | Received an email from Gmail (as set in Heroku) with a confirmation link.   |             |
+| Clicked confirmation link                | Directed back to site, to a page asking for a new password to be entered.   |             |
+| Entered new password twice correctly     | Directed to password reset confirmed screen                                 |             |
+| Attempted to sign in with new password   | Successfully logged in.                                                     | Pass        |
+| **Test 2 - Incorrect Password**          | **Result**                                                                  | **Verdict** |
+| Entered new password twice with an error | Error message displays asking to enter the passwords again                  | Pass        |
+| **Test 3 - Log in With old password**    | **Result**                                                                  | **Verdict** |
+| Attempted to log in with old password    | Error message stating incorrect username/password displays                  | Pass        |
+
+
 
 * As a Site Admin I can remove users so that I can ensure a code of conduct is followed & 
 * As a Site Admin I can remove photos/posts so that I can keep the content family friendly & 
