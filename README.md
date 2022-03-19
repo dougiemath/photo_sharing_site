@@ -1,4 +1,7 @@
 # Photo Sharing Site
+
+![Responsive Views](pss-screenshots/responsive-image.png)
+
 ## About
 
 As a keen amateur photographer I wanted a private site to share my photos.  Social Media offers a fine alternative, but, as an image owner, I was never happy with the lack of control I had over who says what about my images.  
@@ -254,8 +257,9 @@ There was no automated testing carried out during this project.  Each User Story
 | Attempted to log in with old password    | Error message stating incorrect username/password displays                  | Pass        |
 
 
+### As a Site Admin I can remove users so that I can ensure a code of conduct is followed
 
-* As a Site Admin I can remove users so that I can ensure a code of conduct is followed & 
+
 * As a Site Admin I can remove photos/posts so that I can keep the content family friendly & 
 * As a Site Admin I can remove comments that are offensive so I can keep the comment section family friendly
     * All of these are taken care of automatically by Django’s admin system.
