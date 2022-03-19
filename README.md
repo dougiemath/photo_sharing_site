@@ -184,4 +184,27 @@ There was no automated testing carried out during this project.  Each User Story
 | Bug 10    | Like button not symmetrical                                                                       | Padding added to bottom only                                                                                                                          | Added class mb-1 to icon                                                                                               |
 
 
-Deployment
+## Technology Used
+
+Langauges Used:
+* HTML
+* CSS
+* Javascript
+* Python
+
+Libraries Used:
+
+* [Colcade](https://github.com/desandro/colcade)
+* [Bootstrap 4](https://getbootstrap.com/)
+* [Django](https://www.djangoproject.com/)
+
+Django Applications Used:
+* [Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/)
+* [Django-Taggit](https://django-taggit.readthedocs.io/en/latest/)
+* [Django-Allauth](https://django-allauth.readthedocs.io/en/latest/installation.html)
+
+Tools:
+* [Cloudinary](https://cloudinary.com/)
+* [Heroku](https://www.heroku.com/)
+* [Postgres](https://www.postgresql.org/)
+
