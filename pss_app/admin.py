@@ -9,7 +9,7 @@ Post section for admin area
 @admin.register(Post)
 class PhotoAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_on', 'author', 'tags')
-    search_fields = ('title',)
+    search_fields = ('title', 'author')
     list_filter = ('title', 'created_on', 'author', 'tags')
 
 
