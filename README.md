@@ -259,10 +259,34 @@ There was no automated testing carried out during this project.  Each User Story
 
 ### As a Site Admin I can remove users so that I can ensure a code of conduct is followed
 
+| Test                                                                                                              | Result                                                                                                                                                             | Verdict |
+|-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| Logged into Admin Site using superuser credentials                                                                | Accessed Admin site                                                                                                                                                |         |
+| Selected 'Users' from list                                                                                        | Able to see a list of all users who have signed up to the site                                                                                                     |         |
+| Selected the user I wanted to delete and select 'Delete Selected Users' from Action drop-down menu.  Clicked 'Go' | Taken to a screen that shows all of the content and comments that the selected user has added to the site.  There is an option to back out of deleting the user.   |         |
+| Selected 'Yes I'm Sure'                                                                                           | Screen returns to the Users list and the selected user is no longer present.                                                                                       | Pass    |
 
-* As a Site Admin I can remove photos/posts so that I can keep the content family friendly & 
-* As a Site Admin I can remove comments that are offensive so I can keep the comment section family friendly
-    * All of these are taken care of automatically by Django’s admin system.
+### As a Site Admin I can remove photos/posts so that I can keep the content family friendly 
+
+| Test                                               | Result                                                                            | Verdict     |
+|----------------------------------------------------|-----------------------------------------------------------------------------------|-------------|
+| Logged into Admin Site using superuser credentials | Accessed Admin site                                                               |             |
+| Selected 'Post' from menu                          | Taken to a list of all the 'posts' that have been uploaded on the site            |             |
+| Selected Post at random                            | Taken to the Post's detials page.  At the bottom of which is an option to delete. |             |
+| Selected 'Delete'                                  | Taken to a screen that allows the user to confirm deletion or back out.           |             |
+| Selected 'Yes I'm sure'                            | Redirected back to list of posts.  Selected post is now no longer present.        | Pass        |
+| **Test 2**                                         | **Result**                                                                        | **Verdict** |
+| Returned to site and logged in as image owner      | Deleted image is not displaying on public feed                                    | Pass        |
+| **Test 3**                                         | **Result**                                                                        | **Verdict** |
+| Clicked on 'My Page'                               | Deleted image is not displaying on personal feed                                  | Pass        |
+| **Test 4**                                         | **Result**                                                                        | **Verdict** |
+| Entered URL of deleted image                       | 404 page is displayed                                                             | Pass        |
+
+
+### As a Site Admin I can remove comments that are offensive so I can keep the comment section family friendly
+
+
+
 
 ### Bugs
 
@@ -278,6 +302,7 @@ There was no automated testing carried out during this project.  Each User Story
 | Bug 8     | Users were able to access restrictted pages without logging in                                    | No privacy was associated with Upload/Edit/Delete image pages                                                                                         | Added LoginRequiredMixins to each class in views.py.                                                                   |
 | Bug 9     | Comments were not displaying the comment author but were displaying the logged in user's username | The HTML was incorrect, user.username was defined and not comment.author                                                                              | Changed to comment.author                                                                                              |
 | Bug 10    | Like button not symmetrical                                                                       | Padding added to bottom only                                                                                                                          | Added class mb-1 to icon                                                                                               |
+| Bug 11    | Unable to search in admin site using ForeignKeys fields          |                 |                   |
 
 
 ## Technology Used
@@ -304,3 +329,107 @@ Tools:
 * [Heroku](https://www.heroku.com/)
 * [Postgres](https://www.postgresql.org/)
 
+IDE:
+* [Gitpod](https://www.gitpod.io/)
+
+## Deployment
+
+This project was produced in GitPod and is deployed on Heroku.  This is how to make a copy of this project and deploy it accordingly.  The images are hosted on Cloudinary, so you will to sign up for a cloudinary account in order to get an API key.
+
+### To set it up locally
+
+1 - download the repository using the link at the top of the page, alternatively you can clone it using the following command:
+
+```
+git clone https://github.com/dougiemath/photo_sharing_site
+```
+
+2 - Set up a virtual environment:
+
+```
+py -m venv venv
+```
+
+3 - Activate the virtual environment:
+
+```
+venv\Scripts\activate
+```
+
+Create a project by entering the command:
+
+```
+django-admin startproject YOURPROJECTNAMEHERE 
+```
+
+Create a new app by entering the comand:
+
+```
+py manage.py startapp YOURAPPNAMEHERE
+```
+
+You are now ready to install the packages required to run this program.  You can do this by installing the requirements in the requirements.txt file:
+
+```
+pip install -r requirements.txt
+```
+
+Next we need to add the following to the list of installed apps in settings.py:
+```
+'cloudinary_storage',
+'crispy_forms',
+'allauth',
+'allauth.account',
+'allauth.socialaccount',
+'django.contrib.staticfiles',
+'cloudinary',
+'taggit',
+'yourappname'
+```
+
+You will need to create an `env.py` file which will contain the following:
+
+```
+os.environ["DATABASE_URL"] = "your postgresql url which you will find in heroku (see below)"
+os.environ["SECRET_KEY"] = "your secret key which will added to heroku"
+os.environ["CLOUDINARY_URL"] = "your cloudinary api"
+```
+
+### Setting up email server
+In order to send emails (such as user confirmation) you will need to configure an email.  I have used gmail and followed the guidelines as stated here:
+
+[Google Email Guidelines for Apps](https://support.google.com/mail/thread/38519529/anyone-who-can-help-me-out-with-this-error-smtplib-smtpsenderrefused-530-b-5-7-0-auth-required?hl=en)
+
+### Setting up on Heroku:
+
+1 - Set up a (or log into an existing) Heroku account.
+
+2 - Select add new app and give it a unique name
+
+3 - Select 'Resources' and search for/install the Heroku Postgres add-on.
+
+4 - Select 'Settings' and click 'Reveal Convig Vars'
+
+5 - You will find the DATABASE URL already added, copy this to the `env.py` file mentioned previously.
+
+6 - You will need the following convig vars:
+```
+CLOUDINARY_URL = your API url from cloudinary
+SECRET_KEY = your secret key must match the secret key in your `env.py` file
+EMAIL_HOST_USER = your chosen email account's address
+EMAIL_HOST_PASS = your chosen emaiil account's password or dedicated access key
+```
+### Migrate and Run
+
+Finally, all that remains is to `makemigration` by entering the following command:
+```
+python3 manage.py makemigrations
+```
+Then migrate using the following:
+```
+python3 manage.py migrate
+```
+And run the app locally:
+```
+python3 manage.py runserver
+```
