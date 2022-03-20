@@ -31,6 +31,14 @@ This site was designed as a place for people to come together to share their own
 * As a Site Admin I can remove comments that are offensive so I can keep the comment section family friendly
 ---
 
+## Wireframes
+
+[Desktop image Grid](pss-screenshots/wireframes/wirefram-homepage-desktop-view.png)
+[Mobile Image Grid](pss-screenshots/wireframes/wirefram-homepage-mobile-view.png)
+[Dektop Image Content](pss-screenshots/wireframes/wirefram-image-detail-desktop-view.png)
+[Mobile Image Content](pss-screenshots/wireframes/wirefram-image-detail-mobile-view.png)
+
+
 ## Features
 ### Landing Page
 
@@ -334,7 +342,7 @@ IDE:
 
 ## Deployment
 
-This project was produced in GitPod and is deployed on Heroku.  This is how to make a copy of this project and deploy it accordingly.  The images are hosted on Cloudinary, so you will to sign up for a cloudinary account in order to get an API key.
+This project was produced in GitPod and is deployed on Heroku.  This is how to make a copy of this project and deploy it accordingly.  The images are hosted on Cloudinary, so you will to sign up for a cloudinary account in order to get an API key.  I opted to use a gmail account, the settings for which are in the `settings.py` file.
 
 ### To set it up locally
 
@@ -433,3 +441,7 @@ And run the app locally:
 ```
 python3 manage.py runserver
 ```
+
+### Credits
+
+I would like to thank my mentor for all the advice he gave me and the help he provided when testing this app.    I would also like to thank the Slack community for all the discussions on how to improve my code.
