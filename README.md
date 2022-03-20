@@ -2,11 +2,15 @@
 
 ![Responsive Views](pss-screenshots/responsive-image.png)
 
+___
+
 ## About
 
 As a keen amateur photographer I wanted a private site to share my photos.  Social Media offers a fine alternative, but, as an image owner, I was never happy with the lack of control I had over who says what about my images.  
 
 This site was designed as a place for people to come together to share their own photos – whether they are professional or not.  The intention is to foster a community of photographers where ownership of content remains in their hands.
+
+___
 
 ## UX
 
@@ -29,15 +33,20 @@ This site was designed as a place for people to come together to share their own
 * As a Site Admin I can create draft content so that I can leave and finish it at a later time
 * As a Site Admin I can upload photos/create posts so that I can manage my site's content.
 * As a Site Admin I can remove comments that are offensive so I can keep the comment section family friendly
----
+
+___
 
 ## Wireframes
 
 [Desktop image Grid](pss-screenshots/wireframes/wirefram-homepage-desktop-view.png)
+
 [Mobile Image Grid](pss-screenshots/wireframes/wirefram-homepage-mobile-view.png)
-[Dektop Image Content](pss-screenshots/wireframes/wirefram-image-detail-desktop-view.png)
+
+[Desktop Image Content](pss-screenshots/wireframes/wirefram-image-detail-desktop-view.png)
+
 [Mobile Image Content](pss-screenshots/wireframes/wirefram-image-detail-mobile-view.png)
 
+___
 
 ## Features
 ### Landing Page
@@ -52,6 +61,7 @@ For logged in users:
 
 The thumbnail grid content remains the same, but the navigation bar now shows the users name, a link to the users page, a seach bar, a link to a page to upload an image and a log out link.
 ___ 
+
 ### User's Page:
 
 The same grid has been employed for continuity purposes but this grid will display ONLY images that belong to the user - both published and draft.
@@ -88,6 +98,7 @@ Image details for User's own image:
 This screensht shows an image which has not been made public yet.  There are instructions on how to do so.  Once it is made public, the user will see this:
 
 ![Image Details 4](pss-screenshots/image-details-published.png)
+
 ___
 
 ### Log In
@@ -95,6 +106,7 @@ ___
 The user is presented with a log in form that was styled using Crispy Forms.  Crispy Forms was chosen for all forms. There is also an option to reset passwords.
 
 ![Log In](pss-screenshots/log-in.png)
+
 ___ 
 
 ### Sign Up
@@ -102,6 +114,7 @@ ___
 The user must sign up with an email address as they will be unable to access the site without.  If the user fails to complete any field, the sign-up process will fail.
 
 ![Sign Up Screen](pss-screenshots/sign-up-screen.png)
+
 ___
 
 ### Forgot Password
@@ -109,6 +122,7 @@ ___
 The user will have an opportunity to reset their password by entering their email address and following a link that they will receive in their email.
 
 ![Reset Password](pss-screenshots/password-reset.png)
+
 ___
 
 ### Log Out
@@ -116,6 +130,7 @@ ___
 The user is not logged out on clicking the link in the nav bar, but directed to a confirmation page.
 
 ![Log Out](pss-screenshots/log-out.png)
+
 ___
 
 ### Upload an Image
@@ -132,6 +147,7 @@ ___
 If the user notices a spelling/factual error after publishing their image, they can fix it here.  They can also change the uploaded image.
 
 ![Edit Image](pss-screenshots/edit-photo.png)
+
 ___
 
 ### Delete an Image
@@ -139,6 +155,8 @@ ___
 The user will be given an opportunity to back out of the deletion process.  Once an image is deleted from the database it cannot be recovered.
 
 ![Delete Image](pss-screenshots/delete-image.png)
+
+___
 
 ## Testing
 
@@ -294,7 +312,7 @@ There was no automated testing carried out during this project.  Each User Story
 ### As a Site Admin I can remove comments that are offensive so I can keep the comment section family friendly
 
 
-
+___
 
 ### Bugs
 
@@ -311,6 +329,9 @@ There was no automated testing carried out during this project.  Each User Story
 | Bug 9     | Comments were not displaying the comment author but were displaying the logged in user's username | The HTML was incorrect, user.username was defined and not comment.author                                                                              | Changed to comment.author                                                                                              |
 | Bug 10    | Like button not symmetrical                                                                       | Padding added to bottom only                                                                                                                          | Added class mb-1 to icon                                                                                               |
 | Bug 11    | Unable to search in admin site using ForeignKeys fields          |                 |                   |
+| Bug 12    | Entering an incorrect email displays default 404 page          | No custom 404 or 500 page designed                | Designed custom pages                  |
+| Bug 13    | Able to access image upload pages without logging in using url          | Pages were not restricted                |  Added LogInRequiredMixin to each view that requires user access                 |
+| Bug 14    | Comments were showing ucrrent user as author instead of comment author          | Wrong content in html page                | Changed user.username to comment.author on image_detail.html                  |
 
 
 ## Technology Used
