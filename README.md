@@ -176,7 +176,7 @@ There was no automated testing carried out during this project.  Each User Story
 
 | Test                                                                                                  | Result                                                                      | Verdict |
 |-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|---------|
-| Entered the site's URL and selected a random image.  From here, clicked on one of the displayed tags. | Clicking on tag directs user to a page displaying images with the same tag. | Pass    |
+| Entered the site's URL and selected a random image.  From here, clicked on one of the displayed tags. | Clicking on tag directs user to a page displaying images with the same tag. |     |
 | Signed up & Logged into site and clicked on 'Main Feed' and selected a random image.  From here, clicked on one of the displayed tags.                                               | Clicking on tag directs user to a page displaying images with the same tag.                                                                            | Pass    |
 | Signed up & Logged into Site and clicked on 'My Page' and selected a random image.  From here, clicked on one of the displayed tags.                                                  | Clicking on tag directs user to a page displaying images with the same tag.                                                                            | Pass    |
 
@@ -193,7 +193,7 @@ There was no automated testing carried out during this project.  Each User Story
 
 | Test                                                                             | Result                                                                                          | Verdict |
 |----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|---------|
-| Entered the site's URL and attempted to click 'Upload an Image'                  | Cannot access the image upload section without a user account                                   | Pass    |
+| Entered the site's URL and attempted to click 'Upload an Image'                  | Cannot access the image upload section without a user account - Button is not present.                                   | Pass    |
 | Signed up & Logged into site and clicked on 'Upload an Image'                    | Image Upload section displays.                                                                  | Pass    |
 | Completed form by adding: title, .png file, description, tag and setting status to 'Published'. | Image uploaded successfully and displays as the first image in the public feed and user's page. | Pass    |
 | Completed form by leaving one field blank.                                       | Site will not allow user to complete the upload process with one or more empty fields.          | Pass    |   
@@ -204,7 +204,7 @@ There was no automated testing carried out during this project.  Each User Story
 
 | Test                                                                                            | Result                                                                                                                        | Verdict |
 |-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|---------|
-| Entered the site's URL and attempted to click 'Upload an Image'                                 | Cannot access the image upload section without a user account                                                                 | Pass    |
+| Entered the site's URL and attempted to click 'Upload an Image'                                 | Cannot access the image upload section without a user account  - button is not present                                                               | Pass    |
 | Signed up & Logged into site and clicked on 'Upload an Image'                                   | Image Upload section displays.                                                                                                | Pass    |
 | Completed form by adding: title, .png file, description, tag and setting status to 'Published'. | Image uploaded successfully and displays as the first image in the public feed and user's page.                               | Pass    |
 | Completed form by adding: title, .png file, description, tag, and setting status to 'Draft'     | Image uploaded successfully and displays as the first image on the user's page only.  Image does not display on the man feed. | Pass    |
