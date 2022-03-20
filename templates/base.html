@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#maincontent">Skip to main</a>
+  <a class="skip-link" href="#main">Skip to main</a>
   <header>
     {% if user.is_authenticated %}
     <div class="container-fluid border-bottom ">
@@ -92,7 +92,7 @@
 
   </header>
 
-  <section class="pr-3 pl-3 pt-1 pb-1">
+  <section id = "main" class="pr-3 pl-3 pt-1 pb-1">
 
     {% block content %}{% endblock content %}
 
