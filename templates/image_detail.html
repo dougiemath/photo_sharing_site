@@ -25,7 +25,7 @@
                     {% if request.user in image.likes.all %}
                     <div class="d-flex flex-row">
                         <div class="mr-2"><button type="submit" name="image_id" value="{{ image.id }}"
-                                class="btn btn-outline-dark btn-sm pt-2">
+                                class="btn btn-outline-dark btn-sm pt-2" aria-label="like-button">
                                 <ion-icon class="" name="heart"></ion-icon>
                             </button>
                         </div>

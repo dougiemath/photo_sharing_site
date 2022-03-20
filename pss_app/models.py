@@ -18,7 +18,7 @@ class Post(models.Model):
     description = models.TextField(max_length=500)
     created_on = models.DateTimeField(auto_now_add=True)
     featured_image = CloudinaryField('image')
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name='post_author', on_delete=models.CASCADE)
     tags = TaggableManager()
     status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(User,
@@ -43,7 +43,7 @@ Comments model
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                              related_name='comments')
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    author = models.ForeignKey(User, related_name='comment_author', on_delete=models.CASCADE)
     body = models.TextField(max_length=500)
     created_on = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=True)

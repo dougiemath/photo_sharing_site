@@ -9,7 +9,7 @@ Post section for admin area
 @admin.register(Post)
 class PhotoAdmin(admin.ModelAdmin):
     list_display = ('title', 'created_on', 'author', 'tags')
-    search_fields = ('title', 'author')
+    search_fields = ['title', 'author__username']
     list_filter = ('title', 'created_on', 'author', 'tags')
 
 
@@ -22,7 +22,7 @@ Comment section for admin area
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('author', 'body', 'post', 'created_on', 'active')
     list_filter = ('active', 'created_on')
-    search_fields = ('body',)
+    search_fields = ['author__username', 'body']
     actions = ['approve_comments']
 
     def approve_comments(self, request, queryset):
