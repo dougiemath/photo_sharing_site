@@ -22,7 +22,7 @@ Comment section for admin area
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('author', 'body', 'post', 'created_on', 'active')
     list_filter = ('active', 'created_on')
-    search_fields = ['author__username', 'body']
+    search_fields = ['author__username', 'body', 'post__title']
     actions = ['approve_comments']
 
     def approve_comments(self, request, queryset):
