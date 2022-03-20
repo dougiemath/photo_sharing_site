@@ -179,10 +179,13 @@ All code was copied and pasted into [PEP8 Online](http://pep8online.com/)
 Testing was carried using [ARC Toolkit](https://www.tpgi.com/)
 
 [Landing Page (Not logged in)](pss-screenshots/arc-accessibility/landing-page.png)
+* No errors
 
 [Landing Page (Logged in)](pss-screenshots/arc-accessibility/landing-page-logged-in.png)
+* No errors
 
 [Image details (not logged in)](pss-screenshots/arc-accessibility/image-details-not-logged-in.png)
+* No errors
 
 [Image details (logged in)](pss-screenshots/arc-accessibility/image-details-logged-in.png)
 * **Error:** no button text
@@ -193,20 +196,24 @@ Testing was carried using [ARC Toolkit](https://www.tpgi.com/)
 * **Resolution:** As the background image is a gradiant, ignoring this error as it can be seen that there is clear contrast.
 
 [Log Out](pss-screenshots/arc-accessibility/logout.png)
+* No errors
 
 [Sign Up](pss-screenshots/arc-accessibility/sign-up.png)
 * **Error:** insufficient color contrast between foreground text and the background
 * **Resolution:** As the background image is a gradiant, ignoring this error as it can be seen that there is clear contrast.
 
 [Verify Email](pss-screenshots/arc-accessibility/verify-email.png)
+* No errors
 
 [Confirm Email](pss-screenshots/arc-accessibility/confirm-email.png)
 * **Error:** insufficient color contrast between foreground text and the background
 * **Resolution:** As the background image is a gradiant, ignoring this error as it can be seen that there is clear contrast.
 
 [Search Results](pss-screenshots/arc-accessibility/search-results.png)
+* No errors
 
 [Tag Results](pss-screenshots/arc-accessibility/tag-results.png)
+* No errors
 
 [Upload Image](pss-screenshots/arc-accessibility/upload-image.png)
 * **Error:** the '*' character was detected in the label, indicating a required field, but the field is not semantically defined as being required
