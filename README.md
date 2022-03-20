@@ -178,29 +178,49 @@ All code was copied and pasted into [PEP8 Online](http://pep8online.com/)
 ### Accessibility Testing
 Testing was carried using [ARC Toolkit](https://www.tpgi.com/)
 
-* [Landing Page (Not logged in)](pss-screenshots/arc-accessibility/landing-page.png)
-* [Landing Page (Logged in)](pss-screenshots/arc-accessibility/landing-page-logged-in.png)
-* [Image details (not logged in)](pss-screenshots/arc-accessibility/image-details-not-logged-in.png)
-* [Image details (logged in)](pss-screenshots/arc-accessibility/image-details-logged-in.png)
-* [Log In](pss-screenshots/arc-accessibility/login.png)
-* [Log Out](pss-screenshots/arc-accessibility/logout.png)
-* [Sign Up](pss-screenshots/arc-accessibility/sign-up.png)
-    * **Error:** insufficient color contrast between foreground text and the background
-    * **Resolution:** As the background image is a gradiant, ignoring this error as it can be seen that there is clear contrast.
-* [Verify Email](pss-screenshots/arc-accessibility/verify-email.png)
-* [Confirm Email](pss-screenshots/arc-accessibility/confirm-email.png)
-* [Search Results](pss-screenshots/arc-accessibility/search-results.png)
-* [Tag Results](pss-screenshots/arc-accessibility/tag-results.png)
-* [Upload Image](pss-screenshots/arc-accessibility/upload-image.png)
-    * **Error:** the '*' character was detected in the label, indicating a required field, but the field is not semantically defined as being required
-    * **Resolution:** ARC Toolkit recommended *use aria-required='true' on the form element (not the label)*, however when I did this I ran the code through [W3C Validator](https://validator.w3.org/) and it flagged as an error.  As this is part of django-allauth and not the result of user input, I am electing to ignore it.
-    * **Error:** insufficient color contrast between foreground text and the background
-    * **Resolution:** As the background image is a gradiant, ignoring this error as it can be seen that there is clear contrast.
-*[Edit Image](pss-screenshots/arc-accessibility/edit-image.png)
-    * **Error:** the '*' character was detected in the label, indicating a required field, but the field is not semantically defined as being required
-    * **Resolution:** ARC Toolkit recommended *use aria-required='true' on the form element (not the label)*, however when I did this I ran the code through [W3C Validator](https://validator.w3.org/) and it flagged as an error.  As this is part of django-allauth and not the result of user input, I am electing to ignore it.
-    * **Error:** insufficient color contrast between foreground text and the background
-    * **Resolution:** As the background image is a gradiant, ignoring this error as it can be seen that there is clear contrast.
+[Landing Page (Not logged in)](pss-screenshots/arc-accessibility/landing-page.png)
+
+[Landing Page (Logged in)](pss-screenshots/arc-accessibility/landing-page-logged-in.png)
+
+[Image details (not logged in)](pss-screenshots/arc-accessibility/image-details-not-logged-in.png)
+
+[Image details (logged in)](pss-screenshots/arc-accessibility/image-details-logged-in.png)
+* **Error:** no button text
+* **Resolution:** error is raised as 'like' button does not possess any text. The button contains an icon of a heart and an aria label stating 'like button' 
+
+[Log In](pss-screenshots/arc-accessibility/login.png)
+* **Error:** insufficient color contrast between foreground text and the background
+* **Resolution:** As the background image is a gradiant, ignoring this error as it can be seen that there is clear contrast.
+
+[Log Out](pss-screenshots/arc-accessibility/logout.png)
+
+[Sign Up](pss-screenshots/arc-accessibility/sign-up.png)
+* **Error:** insufficient color contrast between foreground text and the background
+* **Resolution:** As the background image is a gradiant, ignoring this error as it can be seen that there is clear contrast.
+
+[Verify Email](pss-screenshots/arc-accessibility/verify-email.png)
+
+[Confirm Email](pss-screenshots/arc-accessibility/confirm-email.png)
+* **Error:** insufficient color contrast between foreground text and the background
+* **Resolution:** As the background image is a gradiant, ignoring this error as it can be seen that there is clear contrast.
+
+[Search Results](pss-screenshots/arc-accessibility/search-results.png)
+
+[Tag Results](pss-screenshots/arc-accessibility/tag-results.png)
+
+[Upload Image](pss-screenshots/arc-accessibility/upload-image.png)
+* **Error:** the '*' character was detected in the label, indicating a required field, but the field is not semantically defined as being required
+* **Resolution:** ARC Toolkit recommended *use aria-required='true' on the form element (not the label)*, however when I did this I ran the code through [W3C Validator](https://validator.w3.org/) and it flagged as an error.  As this is part of django-allauth and not the result of user input, I am electing to ignore it.
+
+* **Error:** insufficient color contrast between foreground text and the background
+* **Resolution:** As the background image is a gradiant, ignoring this error as it can be seen that there is clear contrast.
+
+[Edit Image](pss-screenshots/arc-accessibility/edit-image.png)
+* **Error:** the '*' character was detected in the label, indicating a required field, but the field is not semantically defined as being required
+* **Resolution:** ARC Toolkit recommended *use aria-required='true' on the form element (not the label)*, however when I did this I ran the code through [W3C Validator](https://validator.w3.org/) and it flagged as an error.  As this is part of django-allauth and not the result of user input, I am electing to ignore it.
+
+* **Error:** insufficient color contrast between foreground text and the background
+* **Resolution:** As the background image is a gradiant, ignoring this error as it can be seen that there is clear contrast.
 
 
 ### Manual Testing
