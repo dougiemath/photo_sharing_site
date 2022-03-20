@@ -326,7 +326,15 @@ There was no automated testing carried out during this project.  Each User Story
 
 ### As a Site Admin I can remove comments that are offensive so I can keep the comment section family friendly
 
-
+| Test                                                                             | Result                                                                                                                       | Verdict |
+|----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|---------|
+| Logged into Admin site using superuser credentials                               | Accessed Admin                                                                                                               |         |
+| Selected 'Comments' from the menu                                                | Accessed all the comments on the site                                                                                        |         |
+| Entered 'offensive' word from comment.                                           | Comment list filtered and displayed only comment(s) which contained the offensive word.                                      | Pass    |
+| Selected Comment and chose 'Delete Selected Comments' from action drop-down menu | Taken to a page which gives the option of deleting the comment or backing out.                                               |         |
+| Selected Delete                                                                  | Returned to comments list and the comment in question has been removed.                                                      | Pass    |
+| Returned to live site and visited post which contained offensive comment.        | Comment is not displaying.                                                                                                   | Pass    |
+| Test repeated, but filtered by 'Post'                                            | All comments on the searched for post display.  The offensive comment is selectable and the process of deletion is the same. | Pass    |
 ___
 
 ### Bugs
@@ -343,7 +351,7 @@ ___
 | Bug 8     | Users were able to access restrictted pages without logging in                                    | No privacy was associated with Upload/Edit/Delete image pages                                                                                         | Added LoginRequiredMixins to each class in views.py.                                                                   |
 | Bug 9     | Comments were not displaying the comment author but were displaying the logged in user's username | The HTML was incorrect, user.username was defined and not comment.author                                                                              | Changed to comment.author                                                                                              |
 | Bug 10    | Like button not symmetrical                                                                       | Padding added to bottom only                                                                                                                          | Added class mb-1 to icon                                                                                               |
-| Bug 11    | Unable to search in admin site using ForeignKeys fields          |                 |                   |
+| Bug 11    | Unable to search in admin site using ForeignKeys fields          | Incorrect search field                 |  added '__name' to 'author' search field                 |  
 | Bug 12    | Entering an incorrect email displays default 404 page          | No custom 404 or 500 page designed                | Designed custom pages                  |
 | Bug 13    | Able to access image upload pages without logging in using url          | Pages were not restricted                |  Added LogInRequiredMixin to each view that requires user access                 |
 | Bug 14    | Comments were showing ucrrent user as author instead of comment author          | Wrong content in html page                | Changed user.username to comment.author on image_detail.html                  |
