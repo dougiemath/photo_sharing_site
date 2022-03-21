@@ -177,7 +177,8 @@ All code was copied and pasted into [PEP8 Online](http://pep8online.com/)
 
 ### CSS Testing
 Testing was carried out by copying CSS code and pasting it into [Jigsaw](https://jigsaw.w3.org/).  
-Results = [No Errors](pss-screenshots/jigsaw-validation/Jidsaw Validation.png)
+
+Results = [No Errors](pss-screenshots/jigsaw-validation/jigsaw-validation.png)
 
 
 ### HTML Testing
