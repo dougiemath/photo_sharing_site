@@ -5,34 +5,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="Description" content="Enter your description here" />
+  <meta name="Description" content="A simple photo sharing site where people can share their favourite pictures." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
   <title>
     {% block title %} Home {% endblock %}
  </title>
 </head>
-
 <body>
   <a class="skip-link" href="#main">Skip to main</a>
   <header>
     {% if user.is_authenticated %}
     <div class="container-fluid border-bottom ">
-      
       <nav class="navbar navbar-expand-lg navbar-light nav-text">
-
         <a class="navbar-brand" href="{% url 'image:list' %}">
           <h1 class = "site-title">PHOTO SHARING SITE</h1>
         </a>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03"
           aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarsExample03">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
@@ -45,14 +39,12 @@
               <a class="nav-link" href="{% url 'image:user_feed' %}">My Page</a>
             </li>
           </ul>
-
           <form class="form-inline my-2 my-lg-0" method=POST action="{% url 'image:search_results' %}">
             {% csrf_token %}
             <input class="form-control mr-sm-2" type="search" placeholder="Search Images" aria-label="Search"
               name="searched">
             <button class="btn btn-outline-dark my-2 my-sm-0 mr-2" type="submit">Search</button>
           </form>
-
           <a class="btn btn-outline-dark my-2 my-sm-0 mr-2" href="{% url 'image:create' %}">Upload Image</a>
           <div class="log-out-button"><a class="btn btn-outline-dark my-2 my-sm-0" href="{% url 'account_logout' %}">Log
               Out</a>
@@ -65,12 +57,10 @@
         <a class="navbar-brand" href="{% url 'image:list' %}">
           <h1 class = "site-title">PHOTO SHARING SITE</h1>
         </a>
-
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03"
           aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarsExample03">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
@@ -81,54 +71,37 @@
             </li>
           </ul>
         </div>
-
         {% endif %}
       </nav>  
   </div>
-    
-
-  </header>
-
+</header>
   <section id = "main" class="pr-3 pl-3 pt-1 pb-1" tabindex="-1" role='main'>
-
     {% block content %}{% endblock content %}
-
   </section>
 
-  <footer class="container-fluid text-center text-dark border-top border-dark">
-    <div class="container p-4 pb-0">
-      <section class="mb-2">
-        <a class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/" target="_blank"
-          role="button" aria-label="Link to facebook.com"><i class="fab fa-facebook-f"></i></a>
-
-        <a class="btn btn-outline-dark btn-floating m-1" href="https://twitter.com/" target="_blank" role="button" aria-label="Link to twitter.com"><i
-            class="fab fa-twitter"></i></a>
-
-        <a class="btn btn-outline-dark btn-floating m-1" href="https://www.google.com/" target="_blank" role="button" aria-label="Link to google.com"><i
-            class="fab fa-google"></i></a>
-
-        <a class="btn btn-outline-dark btn-floating m-1" href="https://www.instagram.com/?hl=en" target="_blank"
-          role="button" aria-label="Link to instagram.com"><i class="fab fa-instagram"></i></a>
-
-        <a class="btn btn-outline-dark btn-floating m-1" href="https://www.linkedin.com/" target="_blank"
-          role="button" aria-label="Link to linkedin.com"><i class="fab fa-linkedin-in"></i></a>
-
-        <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/" target="_blank" role="button" aria-label="Link to github.com"><i
-            class="fab fa-github"></i></a>
-      </section>
-
-      <div class="text-center">
-        <p>© 2022 Copyright Photo Sharing Site</p>
-      </div>
+<footer class="container-fluid text-center text-dark border-top border-dark">
+  <div class="container p-4 pb-0">
+    <section class="mb-2">
+      <a class="btn btn-outline-dark btn-floating m-1" href="https://www.facebook.com/" target="_blank"
+        role="button" aria-label="Link to facebook.com"><i class="fab fa-facebook-f"></i></a>
+      <a class="btn btn-outline-dark btn-floating m-1" href="https://twitter.com/" target="_blank" role="button" aria-label="Link to twitter.com"><i
+          class="fab fa-twitter"></i></a>
+      <a class="btn btn-outline-dark btn-floating m-1" href="https://www.google.com/" target="_blank" role="button" aria-label="Link to google.com"><i
+          class="fab fa-google"></i></a>
+      <a class="btn btn-outline-dark btn-floating m-1" href="https://www.instagram.com/?hl=en" target="_blank"
+        role="button" aria-label="Link to instagram.com"><i class="fab fa-instagram"></i></a>
+      <a class="btn btn-outline-dark btn-floating m-1" href="https://www.linkedin.com/" target="_blank"
+        role="button" aria-label="Link to linkedin.com"><i class="fab fa-linkedin-in"></i></a>
+      <a class="btn btn-outline-dark btn-floating m-1" href="https://github.com/" target="_blank" role="button" aria-label="Link to github.com"><i
+          class="fab fa-github"></i></a>
+    </section>
+    <div class="text-center">
+      <p>© 2022 Copyright Photo Sharing Site</p>
     </div>
-  </footer>
-
-
-  <!--Icons-->
-
+  </div>
+</footer>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
   <script src="https://unpkg.com/colcade@0/colcade.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
@@ -136,5 +109,4 @@
   {% load static %}
   <script src="{% static 'js/script.js' %}"></script>
 </body>
-
 </html>

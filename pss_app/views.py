@@ -119,7 +119,7 @@ class AddCommentView(LoginRequiredMixin, CreateView):
 
     def get_success_url(self):
         post = self.kwargs['pk']
-        return reverse_lazy('image:user_image_details', kwargs={'pk': post})
+        return reverse_lazy('image:detail', kwargs={'pk': post})
 
 
 def search_results(request):

@@ -416,6 +416,8 @@ ___
 | Bug 12    | Entering an incorrect email displays default 404 page          | No custom 404 or 500 page designed                | Designed custom pages                  |
 | Bug 13    | Able to access image upload pages without logging in using url          | Pages were not restricted                |  Added LogInRequiredMixin to each view that requires user access                 |
 | Bug 14    | Comments were showing ucrrent user as author instead of comment author          | Wrong content in html page                | Changed user.username to comment.author on image_detail.html                  |
+| Bug 15    | Adding comment redirects user to the the user's personal page for that image - irrespective of if the comment writer is the image owner or not.          | Redirect in views.py set to user_image_details as opposed to public 'details'                | Updated views.py with correct redirect.                  |
+| Bug 16    | On window load the images are not in the colcade grid system and can be seen re-organising.        | Script can only activate after all content is loaded. | Added a fullpage overlay to the pages where the Colcade grid is employed.  Overlay removes once all content has been loaded.                  |
 
 
 ## Technology Used

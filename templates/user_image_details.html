@@ -4,12 +4,9 @@
 
 
 {% block content %}
-
-<title>{{ image.title }}</title>
-
 <div class="row mt-2">
     <div class="col-sm-8 pr-2">
-        <img class="border rounded" src=" {{ image.featured_image.url }}" style="width: 100%;" alt="{{ image.title }}">
+        <img class="border rounded" src=" {{ image.featured_image.url }}" alt="{{ image.title }}">
     </div>
     <div class="col-sm-4 border rounded container-custom">
         <h2 class="image-details-title">{{ image.title }}</h2>
@@ -38,7 +35,6 @@
             {% endfor %}
         </p>
         <hr class="image-details-divder">
-
         <div class="row d-flex justify-content-between pb-3">
             <p class="image-details-content">Options:
                 <div class="d-flex justify-content-center">
@@ -51,13 +47,11 @@
     </div>
 </div>
 {% if image.status == 1 %}
-<div class="container-fluid pb-2 pt-2 border rounded container-custom mt-3" style=" width: 95%;">
-
+<div class="container-fluid pb-2 pt-2 border rounded container-custom my-3">
     <div class="comment-title col-sm">
         <h2>Comments</h2>
     </div>
     <div class="comments-details pl-3">
-
         {% if not image.comments.all %}
         <strong>There are no comments yet. Be the first by clicking below!</strong>
         {% else %}
@@ -76,6 +70,4 @@
 </div>
 {% else %}
 {% endif %}
-<br>
-
 {% endblock %}

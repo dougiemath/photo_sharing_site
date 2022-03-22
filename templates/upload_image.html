@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 
-{% block title %}Update Image{% endblock %}
+{% block title %}Upload Image{% endblock %}
 
 {% block content %}
 <div class="container pb-2 pt-2 border rounded container-custom my-3">
@@ -16,8 +16,6 @@
             </button>
         </form>
         <a class="btn btn-outline-dark" href="{% url 'image:user_feed' %}">Exit Without Saving</a>
-
     </div>
 </div>
-
 {% endblock %}

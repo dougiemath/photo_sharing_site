@@ -5,23 +5,19 @@
 {% block content %}
 
 {% load crispy_forms_tags %}
-
+<!-- image details section -->
 <div class="row mt-2">
     <div class="col-sm-8 pr-2">
-        <img class="border rounded" src=" {{ image.featured_image.url }}" alt = "{{ image.title }}" style="width: 100%;">
+        <img class="border rounded" src=" {{ image.featured_image.url }}" alt = "{{ image.title }}">
     </div>
     <div class="col-sm-4 border rounded container-custom">
         <h2 class="image-details-title">{{ image.title }}</h2>
         <hr class="image-details-divder">
-
     {% if user.is_authenticated  %}
         <div class="d-flex flex-row mb-0">
-
-            
             <div class="like-btn">
                 <form action="{% url 'image:like_post' image.pk %}" method="POST">
                     {% csrf_token %}
-
                     {% if request.user in image.likes.all %}
                     <div class="d-flex flex-row">
                         <div class="mr-2"><button type="submit" name="image_id" value="{{ image.id }}"
@@ -33,23 +29,18 @@
                             <p class="image-details-content">You have liked this picture.</p>
                         </div>
                     </div>
-                    
                     {% else %}
                     <div class="">
                     <button type="submit" name="image_id" value="{{ image.id }}" class="pt-2 btn btn-outline-dark btn-sm">
                         <ion-icon name="heart-outline"></ion-icon>
                     </button>
                     </div>             
-                   
                 </form>
-                 
                 {% endif %}
             </div>
-            
         </div>    
             {% else %}
             <p class="image-details-content"><small><i>Please log in to like this image.</i></small>
-
             {% endif %}
         <hr class="image-details-divder">
         <p class="image-details-content">{{ image.description }}</p>
@@ -67,13 +58,10 @@
             {% endfor %}
         </p>
         <hr class="image-details-divder">
-
     </div>
 </div>
-
-
-<div class="container-fluid pb-2 pt-2 border rounded container-custom mt-3 mb-3" style=" width: 95%;">
-
+<!-- Comments Section -->
+<div class="container-fluid pb-2 pt-2 border rounded container-custom mt-3 mb-3">
     <div class="comment-title col-sm">
         <h2>Comments</h2>
     </div>
@@ -100,5 +88,4 @@
     <p class="pl-3">You must be logged in to view comments</p>
     {% endif %}
 </div>
-
 {%endblock%}
