@@ -11,6 +11,10 @@ from django.contrib.auth.models import User
 from django.urls import reverse_lazy, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 
+"""
+Classview to display public photostream
+"""
+
 
 class ImageFeedView(ListView):
     model = Post
@@ -18,6 +22,12 @@ class ImageFeedView(ListView):
     context_object_name = 'photos'
     queryset = Post.objects.filter(status=1).order_by("-created_on")
     paginate_by = 30
+
+"""
+Classview to display all photos that
+share a tag (from clicking on a tag on the
+image details page)
+"""
 
 
 class ImageTagListView(ImageFeedView):
@@ -34,6 +44,11 @@ class ImageTagListView(ImageFeedView):
         context["tag"] = self.get_tag()
         return context
 
+"""
+Classview to display more information about
+each image
+"""
+
 
 class ImageDetailView(DetailView):
 
@@ -49,6 +64,11 @@ class ImageDetailView(DetailView):
         if post.likes.filter(id=request.user.id).exists():
             liked = True
 
+"""
+Classview to allow users to upload
+a photo to the site
+"""
+
 
 class ImageCreateView(LoginRequiredMixin, CreateView):
     model = Post
@@ -59,6 +79,11 @@ class ImageCreateView(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+"""
+Classview to ensure that only the author
+of the image can view their image
+"""
 
 
 class UserIsAuthor(UserPassesTestMixin):
@@ -72,6 +97,11 @@ class UserIsAuthor(UserPassesTestMixin):
         else:
             raise PermissionDenied('Sorry, nope!')
 
+"""
+Classview to allow users to make changes to
+their images
+"""
+
 
 class ImageUpdateView(LoginRequiredMixin, UserIsAuthor, UpdateView):
     template_name = 'update.html'
@@ -82,11 +112,19 @@ class ImageUpdateView(LoginRequiredMixin, UserIsAuthor, UpdateView):
         post = self.kwargs['pk']
         return reverse_lazy('image:user_image_details', kwargs={'pk': post})
 
+"""
+Classview to users to delete their images
+"""
+
 
 class ImageDeleteView(LoginRequiredMixin, UserIsAuthor, DeleteView):
     template_name = 'delete.html'
     model = Post
     success_url = reverse_lazy('image:user_feed')
+
+"""
+Classview to display users' personal images
+"""
 
 
 class UserPostList(LoginRequiredMixin, ListView):
@@ -100,11 +138,20 @@ class UserPostList(LoginRequiredMixin, ListView):
         user = self.request.user
         return Post.objects.filter(author=user)
 
+"""
+Classview to display mor information on the users'
+personal image
+"""
+
 
 class UserImageDetails(LoginRequiredMixin, DetailView):
     model = Post
     template_name = 'user_image_details.html'
     context_object_name = 'image'
+
+"""
+Classview to allow users to add a comment
+"""
 
 
 class AddCommentView(LoginRequiredMixin, CreateView):
@@ -121,6 +168,11 @@ class AddCommentView(LoginRequiredMixin, CreateView):
         post = self.kwargs['pk']
         return reverse_lazy('image:detail', kwargs={'pk': post})
 
+"""
+Functionview to search for images by
+entering a tag
+"""
+
 
 def search_results(request):
     if request.method == "POST":
@@ -132,6 +184,10 @@ def search_results(request):
 
     else:
         return render(request, 'search_results.html', {})
+
+"""
+Functionview to like images
+"""
 
 
 def LikeView(request, pk):
