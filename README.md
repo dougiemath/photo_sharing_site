@@ -12,7 +12,45 @@ This site was designed as a place for people to come together to share their own
 
 ___
 
+## Table of Contents
+
+[UX](#UX)
+
+[Wireframes](#Wireframes)
+
+[Planning](#kanban)
+
+[Features](#Features)
+
+[Testing](#Testing)
+
+* [Manual Testing](#Manual-Testing)
+* [Bugs](#Bugs)
+
+[Technology Used](#Technology-Used)
+
+[Deployment](#Deployment)
+
+[Credits](#Credits)
+
+
+
+
+
+___
+
 ## UX
+
+#### Typography
+
+As this site is intended for sharing images, it was important to me that I not detract attention away from the images.  With that in mind I chose the following:
+
+Font Family: [Lato](https://fonts.google.com/specimen/Lato)
+Font Colour: default 
+Background - Gradienta - [Pexels](https://www.pexels.com/photo/green-and-white-painted-wall-7135058/)
+Container Background for text: rgba(245, 245, 245, 0.5)
+
+The im was to make everything as 'gentle' as possible to allow the images to jump out more.
 
 #### User Stories – Site User
 * As a Site User I can view a list of images so I can choose which one to learn more about
@@ -33,6 +71,16 @@ ___
 * As a Site Admin I can create draft content so that I can leave and finish it at a later time
 * As a Site Admin I can upload photos/create posts so that I can manage my site's content.
 * As a Site Admin I can remove comments that are offensive so I can keep the comment section family friendly
+
+
+___
+
+## Kanban
+
+For planning this project I used [Jira](https://www.atlassian.com/software/jira/features/kanban-boards) as I know it is a popular choice of kanban borad.
+
+Project in progress = [Board 1](pss-screenshots/jira-kanban.png)
+Project Complete = [Board 2](pss-screenshots/jira-kanban-clean-board.png)
 
 ___
 
@@ -95,7 +143,7 @@ Image details for User's own image:
 
 ![Image Details 3](pss-screenshots/image-details-draft.png)
 
-This screensht shows an image which has not been made public yet.  There are instructions on how to do so.  Once it is made public, the user will see this:
+This screenshot shows an image which has not been made public yet.  There are instructions on how to do so.  As this image is unique to the user, the site could be used as personal storage as opposed to sharing. Once it is made public, the user will see this:
 
 ![Image Details 4](pss-screenshots/image-details-published.png)
 
@@ -236,7 +284,7 @@ Testing was carried using [ARC Toolkit](https://www.tpgi.com/)
 * **Resolution:** As the background image is a gradiant, ignoring this error as it can be seen that there is clear contrast.
 
 
-### Manual Testing
+## Manual Testing
 
 There was no automated testing carried out during this project.  Each User Story was manually tested as follows:
 
@@ -250,108 +298,107 @@ There was no automated testing carried out during this project.  Each User Story
 
 ### As a Site User I can search for images by tag so that I can only see images that I want to see.
 
-| Test                                                                                                  | Result                                                                      | Verdict |
-|-------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|---------|
+| Test    | Result   | Verdict |
+|-----|--------|---------|
 | Entered the site's URL and selected a random image.  From here, clicked on one of the displayed tags. | Clicking on tag directs user to a page displaying images with the same tag. |     |
-| Signed up & Logged into site and clicked on 'Main Feed' and selected a random image.  From here, clicked on one of the displayed tags.                                               | Clicking on tag directs user to a page displaying images with the same tag.                                                                            | Pass    |
-| Signed up & Logged into Site and clicked on 'My Page' and selected a random image.  From here, clicked on one of the displayed tags.                                                  | Clicking on tag directs user to a page displaying images with the same tag.                                                                            | Pass    |
+| Signed up & Logged into site and clicked on 'Main Feed' and selected a random image.  From here, clicked on one of the displayed tags.   | Clicking on tag directs user to a page displaying images with the same tag.    | Pass    |
+| Signed up & Logged into Site and clicked on 'My Page' and selected a random image.  From here, clicked on one of the displayed tags.  | Clicking on tag directs user to a page displaying images with the same tag.   | Pass    |
 
 ### As a Site User I can click on an image to access more information it so that I can learn more about it.
 
-| Test                                                                                                  | Result                                                                        | Verdict |
-|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|---------|
+| Test  | Result  | Verdict |
+|--------|----------------|---------|
 | Entered the site's URL and selected a random image.  From here, clicked on one of the displayed tags. | Clicking on image displays large copy of image and more information about it. | Pass    |
-| Signed up & Logged into site and clicked on 'Main Feed' and selected a random image.                  | Clicking on image displays large copy of image and more information about it.                                                                              | Pass    |
-| Signed up & Logged into Site and clicked on 'My Page' and selected a random image.                    | Clicking on image displays large copy of image and more information about it.                                                                              | Pass    |
+| Signed up & Logged into site and clicked on 'Main Feed' and selected a random image.  | Clicking on image displays large copy of image and more information about it. | Pass    |
+| Signed up & Logged into Site and clicked on 'My Page' and selected a random image. | Clicking on image displays large copy of image and more information about it.  | Pass    |
 
 
 ### As a Site User I can upload my own images so that I can share my content.
 
-| Test                                                                             | Result                                                                                          | Verdict |
-|----------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|---------|
-| Entered the site's URL and attempted to click 'Upload an Image'                  | Cannot access the image upload section without a user account - Button is not present.                                   | Pass    |
-| Signed up & Logged into site and clicked on 'Upload an Image'                    | Image Upload section displays.                                                                  | Pass    |
+| Test | Result     | Verdict |
+|---------|--------|---------|
+| Entered the site's URL and attempted to click 'Upload an Image' | Cannot access the image upload section without a user account - Button is not present.    | Pass    |
+| Signed up & Logged into site and clicked on 'Upload an Image'  | Image Upload section displays.  | Pass    |
 | Completed form by adding: title, .png file, description, tag and setting status to 'Published'. | Image uploaded successfully and displays as the first image in the public feed and user's page. | Pass    |
-| Completed form by leaving one field blank.                                       | Site will not allow user to complete the upload process with one or more empty fields.          | Pass    |   
+| Completed form by leaving one field blank.   | Site will not allow user to complete the upload process with one or more empty fields.   | Pass    |   
     
 
 ### As a Site Admin I can create draft content so that I can leave and finish it at a later time
 (This was implemented for all users.)
 
-| Test                                                                                            | Result                                                                                                                        | Verdict |
-|-------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------|---------|
-| Entered the site's URL and attempted to click 'Upload an Image'                                 | Cannot access the image upload section without a user account  - button is not present                                                               | Pass    |
-| Signed up & Logged into site and clicked on 'Upload an Image'                                   | Image Upload section displays.                                                                                                | Pass    |
-| Completed form by adding: title, .png file, description, tag and setting status to 'Published'. | Image uploaded successfully and displays as the first image in the public feed and user's page.                               | Pass    |
+| Test   | Result   | Verdict |
+|---------|-----------|---------|
+| Entered the site's URL and attempted to click 'Upload an Image'   | Cannot access the image upload section without a user account  - button is not present   | Pass    |
+| Signed up & Logged into site and clicked on 'Upload an Image'    | Image Upload section displays.      | Pass    |
+| Completed form by adding: title, .png file, description, tag and setting status to 'Published'. | Image uploaded successfully and displays as the first image in the public feed and user's page.  | Pass    |
 | Completed form by adding: title, .png file, description, tag, and setting status to 'Draft'     | Image uploaded successfully and displays as the first image on the user's page only.  Image does not display on the man feed. | Pass    |
 
 
 ### As a Site User I can delete my posts so that can retain control of my images
 
-| Test                                                          | Result                                                                                                   | Verdict |
-|---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|---------|
-| Entered the site as a logged-in user and clicked on 'My Page' | List of images that are public and private to the user displayed.                                        |         |
-| Clicked on a random image.                                    | Image details displayed with option to 'Edit Image' and 'Delete Image'                                   |         |
-| Clicked on 'Delete Image'                                     | Directed to page asking if user is certain. Two buttons are presented to the user: 'Cancel' and 'Delete' |         |
-| Clicked on 'Delete'                                           | Image was removed from user's page and public feed.                                                      |         |
-| Accessed Admin as superuser                                   | Image was removed from database                                                                          | Pass    |
-| **Test 2**                                                    | **Result**                                                                                                         | **Verdict**        |
-| Entered the site as a logged-in user and clicked on 'My Page' | Entered the site as a logged-in user and clicked on 'My Page'                                            |         |
-| Clicked on a random image.                                    | Image details displayed with option to 'Edit Image' and 'Delete Image'                                   |         |
-| Clicked on 'Delete Image'                                     | Directed to page asking if user is certain. Two buttons are presented to the user: 'Cancel' and 'Delete' |         |
-| Clicked on 'Cancel'                                           | Returned to the image details page.  Image is not deleted.                                               | Pass    |
+| Test     | Result      | Verdict |
+|--------|---------|---------|
+| Entered the site as a logged-in user and clicked on 'My Page' | List of images that are public and private to the user displayed.   |         |
+| Clicked on a random image.   | Image details displayed with option to 'Edit Image' and 'Delete Image' |         |
+| Clicked on 'Delete Image'  | Directed to page asking if user is certain. Two buttons are presented to the user: 'Cancel' and 'Delete' |         |
+| Clicked on 'Delete'   | Image was removed from user's page and public feed.   |         |
+| Accessed Admin as superuser  | Image was removed from database     | Pass    |
+| **Test 2**                                                    | **Result**                                                                                                         | **Verdict**        | | Entered the site as a logged-in user and clicked on 'My Page' | Entered the site as a logged-in user and clicked on 'My Page'    |   |
+| Clicked on a random image.   | Image details displayed with option to 'Edit Image' and 'Delete Image'     |         |
+| Clicked on 'Delete Image'  | Directed to page asking if user is certain. Two buttons are presented to the user: 'Cancel' and 'Delete' |         |
+| Clicked on 'Cancel'   | Returned to the image details page.  Image is not deleted. | Pass    |
 
 ### As a Site User I can view/leave comments made from other users so I can read an existing conversation and join in.
 
-| Test - View Comments                                                | Result                                                                                                                                     | Verdict |
-|---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| Entered the site as a logged-in user and clicked on a random image. | Image Details page for chosen image displays. Comments feed displays below image with button to 'Add Comment'.                             | Pass    |
-| **Test - Add Comments**                                             | **Result**                                                                                                                                           | **Verdict**         |
+| Test - View Comments   | Result  | Verdict |
+|--------|---------|---------|
+| Entered the site as a logged-in user and clicked on a random image. | Image Details page for chosen image displays. Comments feed displays below image with button to 'Add Comment'. | Pass    |
+| **Test - Add Comments**   | **Result**     | **Verdict**         |
 | Entered the site as a logged-in user and clicked on a random image. | Image Details page for chosen image displays. Comments feed displays below image with button to 'Add Comment'.                             |         |
-| Clicked 'Add Comment'                                               | Directed to 'Add Comment' page and presented with a text box and two buttons: 'Add' and 'Exit Without Saving'                              |         |
+| Clicked 'Add Comment'   | Directed to 'Add Comment' page and presented with a text box and two buttons: 'Add' and 'Exit Without Saving' |         |
 | Added information to text input and clicked 'Add'                   | Comment added to image.  Directed to Image details page and new comment is at the top of the comments list with comment author displaying. | Pass    |
-| No information added and clicked 'Add'                              | Error message displays.  It is not possible to add a blank comment.                                                                        | Pass    |
-| Attempted to spam comment body with extremely long comment          | Comment body prevents comments longer than 500 characters.                                                                                 | Pass    |
-| Clicked 'Exit Without Saving'                                       | Directed back to image, no comment is displayed. Checking 'Admin' confirms no comment is logged.                                           | Pass    |
+| No information added and clicked 'Add'  | Error message displays.  It is not possible to add a blank comment.     | Pass    |
+| Attempted to spam comment body with extremely long comment   | Comment body prevents comments longer than 500 characters.  | Pass    |
+| Clicked 'Exit Without Saving'   | Directed back to image, no comment is displayed. Checking 'Admin' confirms no comment is logged.  | Pass    |
 
 
 ### As a site User I can like/ view the number of likes other users' pictures so that I can interact with the site
 
-| Test                                                                    | Result                                                                                                                                                                                           | Verdict |
-|-------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| Test  |Result  | Verdict |
+|--------|---------|---------|
 | Entered site URL and clicked on a random image as a non-logged-in user. | Directed to Image Details page for the image that I selected.  On this page is displayed a message telling the user to log in in order to 'Like' the image.  The number of 'Likes' is displayed. | Pass    |
-| Entered site URL and clicked on a random image as a logged-in user.     | Directed to the Image Details page for the image that I selected.  On this page is a button with a 'heart outline' on it and the number of likes is displayed.                                   |         |
-| Clicked on the 'Like' button.                                           | The heart is now filled and a message stating 'You have liked this image' displays.  The number of 'likes' increases by 1.                                                                       | Pass    |
-| Clicked on the 'Like' button again.                                     | The heart is now an outline and the message has disappeared.  The total number of 'likes' has decreased by one.                                                                                  | Pass    |
+| Entered site URL and clicked on a random image as a logged-in user.     | Directed to the Image Details page for the image that I selected.  On this page is a button with a 'heart outline' on it and the number of likes is displayed.  |         |
+| Clicked on the 'Like' button. | The heart is now filled and a message stating 'You have liked this image' displays.  The number of 'likes' increases by 1.    | Pass    |
+| Clicked on the 'Like' button again.   | The heart is now an outline and the message has disappeared.  The total number of 'likes' has decreased by one.   | Pass    |
 
 
 ### As a Site User I can Register for an account to be able to share my pictures.
 
-| Test                                                        | Result                                                                                  | Verdict     |
-|-------------------------------------------------------------|-----------------------------------------------------------------------------------------|-------------|
-| Entered site URL                                            | Arrived at site as a non-logged-in user.                                                |             |
-| Clicked 'Sign Up' in the top right corner                   | Directed to a page asking for: email, username, password and password (confirm)         |             |
-| Completed the form with unique data                         | Directed to a page confirming that an email has been sent to the email address entered. |             |
-| Checked Email                                               | Email received from Gmail (as set in Heroku) asking user to confirm email address.      |             |
-| Confirmed Email                                             | Returned to site as a logged-in user                                                    | Pass        |
-| **Test 2 - Incorrect/invalid data**                         | **Result**                                                                              | **Verdict** |
-| Attempted to sign up with a username that is already in use | Page refreshes with an error displayed under the username field                         | Pass        |
-| Attempted to sign up with an email that is already in use   | Page refreshes with an error displayed under the email field                            | Pass        |
-| Attempted to complete form with empty field                 | Page refreshes with an error displayed under empty field.                               | Pass        |
-| Attempted to complete form with two different passwords     | Page refreshes with error displayed under password field.                               | Pass        |
+| Test   | Result    | Verdict     |
+|--------|---------|---------|
+| Entered site URL  | Arrived at site as a non-logged-in user.  |             |
+| Clicked 'Sign Up' in the top right corner | Directed to a page asking for: email, username, password and password (confirm) |             |
+| Completed the form with unique data | Directed to a page confirming that an email has been sent to the email address entered. |             |
+| Checked Email | Email received from Gmail (as set in Heroku) asking user to confirm email address.      |             |
+| Confirmed Email | Returned to site as a logged-in user  | Pass        |
+| **Test 2 - Incorrect/invalid data**    | **Result**  | **Verdict** |
+| Attempted to sign up with a username that is already in use | Page refreshes with an error displayed under the username field | Pass        |
+| Attempted to sign up with an email that is already in use   | Page refreshes with an error displayed under the email field | Pass        |
+| Attempted to complete form with empty field | Page refreshes with an error displayed under empty field.  | Pass        |
+| Attempted to complete form with two different passwords | Page refreshes with error displayed under password field. | Pass        |
 
 
 ### As I Site User I can reset my password so that I can log in if I forget my credentials.
 
-| Test                                     | Result                                                                      | Verdict     |
-|------------------------------------------|-----------------------------------------------------------------------------|-------------|
-| Entered Site URL                         | Arrived at site as a non-logged-in user                                     |             |
+| Test | Result | Verdict     |
+|--------|---------|---------|
+| Entered Site URL | Arrived at site as a non-logged-in user |             |
 | Clicked 'Log in' int he top right corner | Directed to log in page.  Below the log in form is a link 'Forgot Password' |             |
-| Clicked 'Forgot Password'                | Directed to Password Reset which asks user to enter their email address.    |             |
-| Entered email address                    | Directed to a page instructing user to check the email that was entered.    |             |
-| Checked email                            | Received an email from Gmail (as set in Heroku) with a confirmation link.   |             |
-| Clicked confirmation link                | Directed back to site, to a page asking for a new password to be entered.   |             |
-| Entered new password twice correctly     | Directed to password reset confirmed screen                                 |             |
+| Clicked 'Forgot Password' | Directed to Password Reset which asks user to enter their email address.    |             |
+| Entered email address | Directed to a page instructing user to check the email that was entered.    |             |
+| Checked email | Received an email from Gmail (as set in Heroku) with a confirmation link.   |             |
+| Clicked confirmation link | Directed back to site, to a page asking for a new password to be entered.   |             |
+| Entered new password twice correctly | Directed to password reset confirmed screen |             |
 | Attempted to sign in with new password   | Successfully logged in.                                                     | Pass        |
 | **Test 2 - Incorrect Password**          | **Result**                                                                  | **Verdict** |
 | Entered new password twice with an error | Error message displays asking to enter the passwords again                  | Pass        |
@@ -361,64 +408,70 @@ There was no automated testing carried out during this project.  Each User Story
 
 ### As a Site Admin I can remove users so that I can ensure a code of conduct is followed
 
-| Test                                                                                                              | Result                                                                                                                                                             | Verdict |
-|-------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| Logged into Admin Site using superuser credentials                                                                | Accessed Admin site                                                                                                                                                |         |
-| Selected 'Users' from list                                                                                        | Able to see a list of all users who have signed up to the site                                                                                                     |         |
+| Test | Result | Verdict |
+|--------|---------|---------|
+| Logged into Admin Site using superuser credentials| Accessed Admin site  |         |
+| Selected 'Users' from list | Able to see a list of all users who have signed up to the site |         |
 | Selected the user I wanted to delete and select 'Delete Selected Users' from Action drop-down menu.  Clicked 'Go' | Taken to a screen that shows all of the content and comments that the selected user has added to the site.  There is an option to back out of deleting the user.   |         |
-| Selected 'Yes I'm Sure'                                                                                           | Screen returns to the Users list and the selected user is no longer present.                                                                                       | Pass    |
+| Selected 'Yes I'm Sure' | Screen returns to the Users list and the selected user is no longer present. | Pass    |
 
 ### As a Site Admin I can remove photos/posts so that I can keep the content family friendly 
 
-| Test                                               | Result                                                                            | Verdict     |
-|----------------------------------------------------|-----------------------------------------------------------------------------------|-------------|
-| Logged into Admin Site using superuser credentials | Accessed Admin site                                                               |             |
-| Selected 'Post' from menu                          | Taken to a list of all the 'posts' that have been uploaded on the site            |             |
-| Selected Post at random                            | Taken to the Post's detials page.  At the bottom of which is an option to delete. |             |
-| Selected 'Delete'                                  | Taken to a screen that allows the user to confirm deletion or back out.           |             |
-| Selected 'Yes I'm sure'                            | Redirected back to list of posts.  Selected post is now no longer present.        | Pass        |
+| Test | Result | Verdict     |
+|--------|---------|---------|
+| Logged into Admin Site using superuser credentials | Accessed Admin site |             |
+| Selected 'Post' from menu | Taken to a list of all the 'posts' that have been uploaded on the site |             |
+| Selected Post at random | Taken to the Post's detials page.  At the bottom of which is an option to delete. |             |
+| Selected 'Delete' | Taken to a screen that allows the user to confirm deletion or back out.           |             |
+| Selected 'Yes I'm sure' | Redirected back to list of posts.  Selected post is now no longer present.        | Pass        |
 | **Test 2**                                         | **Result**                                                                        | **Verdict** |
-| Returned to site and logged in as image owner      | Deleted image is not displaying on public feed                                    | Pass        |
+| Returned to site and logged in as image owner | Deleted image is not displaying on public feed | Pass        |
 | **Test 3**                                         | **Result**                                                                        | **Verdict** |
-| Clicked on 'My Page'                               | Deleted image is not displaying on personal feed                                  | Pass        |
+| Clicked on 'My Page' | Deleted image is not displaying on personal feed | Pass        |
 | **Test 4**                                         | **Result**                                                                        | **Verdict** |
-| Entered URL of deleted image                       | 404 page is displayed                                                             | Pass        |
+| Entered URL of deleted image | 404 page is displayed | Pass        |
 
 
 ### As a Site Admin I can remove comments that are offensive so I can keep the comment section family friendly
 
-| Test                                                                             | Result                                                                                                                       | Verdict |
-|----------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|---------|
-| Logged into Admin site using superuser credentials                               | Accessed Admin                                                                                                               |         |
-| Selected 'Comments' from the menu                                                | Accessed all the comments on the site                                                                                        |         |
-| Entered 'offensive' word from comment.                                           | Comment list filtered and displayed only comment(s) which contained the offensive word.                                      | Pass    |
-| Selected Comment and chose 'Delete Selected Comments' from action drop-down menu | Taken to a page which gives the option of deleting the comment or backing out.                                               |         |
-| Selected Delete                                                                  | Returned to comments list and the comment in question has been removed.                                                      | Pass    |
-| Returned to live site and visited post which contained offensive comment.        | Comment is not displaying.                                                                                                   | Pass    |
-| Test repeated, but filtered by 'Post'                                            | All comments on the searched for post display.  The offensive comment is selectable and the process of deletion is the same. | Pass    |
+| Test | Result | Verdict |
+|--------|---------|---------|
+| Logged into Admin site using superuser credentials | Accessed Admin |         |
+| Selected 'Comments' from the menu | Accessed all the comments on the site |         |
+| Entered 'offensive' word from comment. | Comment list filtered and displayed only comment(s) which contained the offensive word. | Pass    |
+| Selected Comment and chose 'Delete Selected Comments' from action drop-down menu | Taken to a page which gives the option of deleting the comment or backing out.|         |
+| Selected Delete | Returned to comments list and the comment in question has been removed. | Pass    |
+| Returned to live site and visited post which contained offensive comment.        | Comment is not displaying. | Pass    |
+| Test repeated, but filtered by 'Post'  | All comments on the searched for post display.  The offensive comment is selectable and the process of deletion is the same. | Pass    |
 ___
 
-### Bugs
+## Bugs
 
 |  Bug Number         | Problem                                                                                           | Cause                                                                                                                                                 | Solution                                                                                                               |
-|-----------|---------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| Bug 1     | Registration form won't display in bootstrap styling                                              | Crispy Forms wasn't installed properly                                                                                                                | added 'crispy_forms' to installed apps                                                                                 |
-| Bug 2     | Password Reset won't send email                                                                   | Django-Auth and Gitpod don't see eye-to-eye and will not send emails from a Google SMPT account.  This issue was not present when working in VS Code. | Removed django-auth and installed allauth.  The issue remained in Gitpod, but is not present in teh live site (Heroku) |
-| Bug 3     | When adding new fields to Post model, migration failed repeatedly                                 | Unsure of underlying cause                                                                                                                            | Reset the database in Heroku                                                                                           |
-| Bug 4     | Search Results not formatting correctly                                                           | Incorrect use of FOR loop                                                                                                                             | Rewrote FOR loop and placed it at the start of grid                                                                    |
-| Bug 5     | Possible to upload 'blank' image                                                                  | Model was written to display a placeholder image without a placeholder being defined.                                                                 | Removed placeholder from model                                                                                         |
-| Bug 6     | 'Like' button wasn't refreshing the page when user 'liked' a post                                 | Spelling mistake in django import.                                                                                                                    | Fixed the spelling mistake (HttpResponseRedirect)                                                                      |
-| Bug 7     | 404 and 500 page outside of site                                                                  | No 404.html or 500.html page were created so django directed to the default                                                                           | Added a 404.html and 500.html page                                                                                     |
-| Bug 8     | Users were able to access restrictted pages without logging in                                    | No privacy was associated with Upload/Edit/Delete image pages                                                                                         | Added LoginRequiredMixins to each class in views.py.                                                                   |
-| Bug 9     | Comments were not displaying the comment author but were displaying the logged in user's username | The HTML was incorrect, user.username was defined and not comment.author                                                                              | Changed to comment.author                                                                                              |
-| Bug 10    | Like button not symmetrical                                                                       | Padding added to bottom only                                                                                                                          | Added class mb-1 to icon                                                                                               |
-| Bug 11    | Unable to search in admin site using ForeignKeys fields          | Incorrect search field                 |  added '__name' to 'author' search field                 |  
-| Bug 12    | Entering an incorrect email displays default 404 page          | No custom 404 or 500 page designed                | Designed custom pages                  |
-| Bug 13    | Able to access image upload pages without logging in using url          | Pages were not restricted                |  Added LogInRequiredMixin to each view that requires user access                 |
-| Bug 14    | Comments were showing ucrrent user as author instead of comment author          | Wrong content in html page                | Changed user.username to comment.author on image_detail.html                  |
-| Bug 15    | Adding comment redirects user to the the user's personal page for that image - irrespective of if the comment writer is the image owner or not.          | Redirect in views.py set to user_image_details as opposed to public 'details'                | Updated views.py with correct redirect.                  |
-| Bug 16    | On window load the images are not in the colcade grid system and can be seen re-organising.        | Script can only activate after all content is loaded. | Added a fullpage overlay to the pages where the Colcade grid is employed.  Overlay removes once all content has been loaded.                  |
+|-----------|-----------|-----------|-----------|
+| Bug 1     | Registration form won't display in bootstrap styling | Crispy Forms wasn't installed properly | added 'crispy_forms' to installed apps |
+| Bug 2     | Password Reset won't send email | Django-Auth and Gitpod don't see eye-to-eye and will not send emails from a Google SMPT account.  This issue was not present when working in VS Code. | Removed django-auth and installed allauth.  The issue remained in Gitpod, but is not present in teh live site (Heroku) |
+| Bug 3     | When adding new fields to Post model, migration failed repeatedly | Unsure of underlying cause | Reset the database in Heroku |
+| Bug 4     | Search Results not formatting correctly | Incorrect use of FOR loop | Rewrote FOR loop and placed it at the start of grid  |
+| Bug 5     | Possible to upload 'blank' image | Model was written to display a placeholder image without a placeholder being defined. | Removed placeholder from model |
+| Bug 6     | 'Like' button wasn't refreshing the page when user 'liked' a post | Spelling mistake in django import. | Fixed the spelling mistake (HttpResponseRedirect) |
+| Bug 7     | 404 and 500 page outside of site | No 404.html or 500.html page were created so django directed to the default | Added a 404.html and 500.html page |
+| Bug 8     | Users were able to access restrictted pages without logging in | No privacy was associated with Upload/Edit/Delete image pages | Added LoginRequiredMixins to each class in views.py. |
+| Bug 9     | Comments were not displaying the comment author but were displaying the logged in user's username | The HTML was incorrect, user.username was defined and not comment.author | Changed to comment.author |
+| Bug 10    | Like button not symmetrical | Padding added to bottom only | Added class mb-1 to icon |
+| Bug 11    | Unable to search in admin site using ForeignKeys fields | Incorrect search field |  added '__name' to 'author' search field                 |  
+| Bug 12    | Entering an incorrect email displays default 404 page | No custom 404 or 500 page designed | Designed custom pages |
+| Bug 13    | Able to access image upload pages without logging in using url | Pages were not restricted |  Added LogInRequiredMixin to each view that requires user access                 |
+| Bug 14    | Comments were showing ucrrent user as author instead of comment author | Wrong content in html page | Changed user.username to comment.author on image_detail.html |
+| Bug 15    | Adding comment redirects user to the the user's personal page for that image - irrespective of if the comment writer is the image owner or not. | Redirect in views.py set to user_image_details as opposed to public 'details' | Updated views.py with correct redirect. |
+| Bug 16    | On window load the images are not in the colcade grid system and can be seen re-organising. | Script can only activate after all content is loaded. | Added a fullpage overlay to the pages where the Colcade grid is employed.  Overlay removes once all content has been loaded. |
 
+## Known Bugs
+| Issue Location | Issue Details  | Possible future solution |
+|---------------|---------------|---------------|
+| Page Loading - Performance | I opted to use Colcade to automatically generate a grid based on the various sizes of the user's images.  I chose this as I did not want to restrict the size or shape of images that may be uploaded.  The grid activates after the content is loaded and causes the performance of the page to be quite poor.  | The problem is not with the grid system, but the lack of restrictions on the images that are being loaded into the public_feed and user_feed pages.  In future, an application to duplicate the user's image and compress it to a much smaller filesize for display purposes would allow the feed pages to load more quickly.  The original images would still be displayed on the image_details pages. |
+| django-taggit              | If the user enters '.' as a tag, this is included in the tag's url and causes an error.  This does not seem to be an error on my (the developer's side) but after discussion with my mentor, it appears to be a limitation of the third-party application.   | Completely new tag system.    |
+| Image Size Restriction              | There is a 10MB limit for uploading images.   | In future, an option to upload an image of any file size but have the display capped at (for example) 5-8MB with an option to download the original image at original size.    |
 
 ## Technology Used
 
@@ -549,6 +602,6 @@ And run the app locally:
 python3 manage.py runserver
 ```
 
-### Credits
+## Credits
 
-I would like to thank my mentor for all the advice he gave me and the help he provided when testing this app.    I would also like to thank the Slack community for all the discussions on how to improve my code.
+I would like to thank my mentor for all the advice he gave me and the help he provided when testing this app.    I would also like to thank the Slack community for all the discussions on how to improve my code.  And, as always, my wife for keeping me infused with copious amounts of caffein.
